@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="array_menu_drawer_edm">
+        <item>Accueil</item>
+        <item>Perso</item>
+        <item>forum</item>
+        <item>Paramètres</item>
+    </string-array>
+    
+    <string-array name="array_type_edm">
+        <item>Choisissez</item>
+        <item>Amour</item>
+        <item>Argent</item>
+        <item>Enfants</item>
+        <item>Travail</item>
+        <item>Santé</item>
+        <item>Sexe</item>
+        <item>Autre</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="0dp"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/bt_mon_compte"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/edm_blue_dark_background"
+            android:hint="@string/mon_compte"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:paddingLeft="6dip"
+            android:text="@string/mon_compte"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bt_forum"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/edm_blue_dark_background"
+            android:hint="@string/luminosite"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:paddingLeft="6dip"
+            android:text="@string/forum"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bt_boutique"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/edm_blue_dark_background"
+            android:hint="@string/boutique"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:paddingLeft="6dip"
+            android:text="@string/boutique"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bt_luminosite"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/edm_blue_dark_background"
+            android:hint="@string/luminosite"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:paddingLeft="6dip"
+            android:text="@string/luminosite"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bt_deconnexion"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/edm_blue_dark_background"
+            android:hint="@string/deconnexion"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:paddingLeft="6dip"
+            android:text="@string/deconnexion"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

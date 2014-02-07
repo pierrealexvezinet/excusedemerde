@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:background="@color/edm_blue_dark_background"
+    android:layout_height="match_parent"
+>
+
+    <!-- contenu de l'activité -->
+
+
+    <!-- contenu du drawer -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="502dp"
+        android:layout_weight="1"
+        android:fillViewport="true" >
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       android:background="@color/edm_blue_dark_background" />
+</ScrollView>
+
+    <!-- The navigation drawer -->
+
+    <ListView
+        android:id="@+id/left_drawer"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="#69727B"
+        android:choiceMode="singleChoice"
+        android:divider="#5E666E"
+        android:dividerHeight="0.25dp" >
+    </ListView>
+
+</android.support.v4.widget.DrawerLayout>

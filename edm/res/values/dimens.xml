@@ -1,0 +1,144 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="padding_default">8dp</dimen>
+    <dimen name="height_list">90dp</dimen>
+    <dimen name="size_list_image">64dp</dimen>
+    <dimen name="font_size_title">17sp</dimen>
+    <dimen name="font_size_description">15sp</dimen>
+    <dimen name="casinoGreenTitleMinHeight">46dp</dimen>
+
+    <!-- TEXT SIZE -->
+    <dimen name="textsizesmallest">12sp</dimen>
+    <dimen name="textsizesmallest_dp">12dp</dimen>
+    <dimen name="textsizemicro">14dp</dimen>
+    <dimen name="textsizesmall">16sp</dimen>
+    <dimen name="textsizesmall_dp">16dp</dimen>
+    <dimen name="textsizemedium">18sp</dimen>
+    <dimen name="textsizebig">24sp</dimen>
+    <dimen name="textsizebigest">22sp</dimen>
+    <dimen name="textsizehuge">24sp</dimen>    
+    <dimen name="basicborderstrokewidth">1dp</dimen>
+    
+    <!-- HOME CSH -->
+    <dimen name="home_csh_image_size">150dp</dimen>
+    
+    <!-- PROSPECTUS -->
+    <dimen name="prospectus_home_height">120dp</dimen>
+    <dimen name="prospectus_home_width">96dp</dimen>
+    <dimen name="prospectus_home_bubble_width">134dp</dimen>
+    
+    <!-- MAIN TITLE -->
+    <dimen name="casino_window_title_text">18sp</dimen>
+    <dimen name="casino_window_title_bar">30dp</dimen>
+
+    <!-- LIST -->
+    <dimen name="liste_detail_height">84dp</dimen>
+    <dimen name="liste_product_section_height">50dp</dimen>
+    <dimen name="list_divider_height">5.5dp</dimen>
+
+    <!-- COVER FLOW -->
+    <dimen name="hauteur_coverflow">260dp</dimen>
+    <dimen name="basket_picture">60dp</dimen>
+    <dimen name="casino_basket_picture">40dp</dimen>
+    <dimen name="tag_euro">50dp</dimen>
+    <dimen name="eco_casino_picture">46dp</dimen>
+
+    <!-- BASKET -->
+    <dimen name="itemmarginpictureleft">2dp</dimen>
+    <dimen name="itemmarginpictureright">2dp</dimen>
+    <dimen name="mdlimagesize">16dp</dimen>
+    <dimen name="paddingbuttonaddchoice">10dp</dimen>
+    <dimen name="detailproduitimagesize">120dp</dimen>
+
+    <!-- ECO PANIER -->
+    <dimen name="ecopanierlogowidth">115dp</dimen>
+    <dimen name="ecopaniergreytitletextsize">21sp</dimen>
+
+    <!-- PROMO -->
+    <dimen name="editheight">42dp</dimen>
+
+    <!-- MSHOPPING -->
+    <dimen name="bundleproduitimagesize">310dp</dimen>
+
+    <!-- FIDELITE -->
+    <dimen name="marginseparator">3dp</dimen>
+    <dimen name="fideliteimagesize">66dp</dimen>
+    <dimen name="fidelitetagsize">130dp</dimen>
+    <dimen name="fideliteclock">25dp</dimen>
+    <dimen name="detailvoucherimagesize">140dp</dimen>
+    <dimen name="detailvoucherimagemargin">10dp</dimen>
+
+    <!-- CATALOGUE -->
+    <dimen name="souscatimageheight">47dp</dimen>
+    <dimen name="catimageheight">67dp</dimen>
+    <dimen name="startwidth">30dp</dimen>
+    <dimen name="startheight">32dp</dimen>
+    <dimen name="buttonAddToBasketSize">30dp</dimen>
+    <dimen name="buttonPlusLessSize">30dp</dimen>
+    <dimen name="listProductThumbHeightTablet">100dp</dimen>
+
+    <!-- MSHOPPING -->
+    <dimen name="mescoursesmshoppingpanier_margin">3dp</dimen>
+    <dimen name="mescoursesmshoppingpanier_imagesize">60dp</dimen>
+    <dimen name="mescoursestescoursespanier_margin">3dp</dimen>
+    <dimen name="bonplanmesbonsplans_filterwidth">160dp</dimen>
+    <dimen name="persistant_basket_height">48dp</dimen>
+    <dimen name="persistant_basket_imagesize">36dp</dimen>
+    <dimen name="emptybasket_size">220dp</dimen>
+    <dimen name="cellgrid_height">170dp</dimen>
+
+    <!-- PIE MENU -->
+    <dimen name="piemenu_whell_width">320dp</dimen>
+    <dimen name="piemenu_detail_height">105dp</dimen>
+    <dimen name="piemenu_detail_tv_paddingbottom">3dp</dimen>
+    <dimen name="piemenu_detail_gridview_columnWidth">74dp</dimen>
+    <dimen name="piemenu_detail_gridview_margintop">20dp</dimen>
+    <dimen name="piemenu_detail_gridview_verticalspacing">20dp</dimen>
+    <dimen name="piemenu_finger_margin_top">-20dp</dimen>
+    <dimen name="mescoursestescoursespanier_text_recette">18sp</dimen>
+
+    <!-- MES COURSES -->
+    <dimen name="mescourses_search_height">30dp</dimen>
+    <dimen name="mescourses_search_textsize">18sp</dimen>
+    <dimen name="mescourses_search_padding">5dp</dimen>
+    <dimen name="mescourses_search_leftpadding">10dp</dimen>
+    <dimen name="mescourses_search_cornerradius">7dp</dimen>
+    <dimen name="mescourses_search_strokewidth">1dp</dimen>
+    <dimen name="didactique_button_height">42dp</dimen>
+    <dimen name="didactique_button_width">42dp</dimen>
+    <dimen name="didactique_button_text_size">18dp</dimen>
+    <dimen name="didactique_button_text_right_margin">40dp</dimen>
+    <dimen name="didactique_button_text_left_margin">70dp</dimen>
+    <dimen name="didactique_wheel_size">320dp</dimen>
+    <dimen name="didactique_textdetail_height">50dp</dimen>
+    <dimen name="mescourses_detail_produit_title_textsize">24sp</dimen>
+
+    <!-- MAGASIN -->
+    <dimen name="magasin_img_width">80dp</dimen>
+    <dimen name="magasin_img_height">40dp</dimen>
+    <dimen name="magasin_star_size">28dp</dimen>
+
+    <!-- DIDACTIQUE -->
+    <dimen name="didactique_number_margin">5dp</dimen>
+
+    <!-- MENU CASINO -->
+    <dimen name="mescourses_title_width">300dp</dimen>
+    <dimen name="mescourses_title_height">33dp</dimen>
+    <dimen name="allo_title_width">300dp</dimen>
+    <dimen name="allo_title_height">33dp</dimen>
+    <dimen name="casinoshopping_title_width">300dp</dimen>
+    <dimen name="casinoshopping_title_height">33dp</dimen>
+    
+    <!-- LATERAL MENU -->
+    <dimen name="menu_width">190dp</dimen>
+    <dimen name="menu_text_size">10sp</dimen>
+    <dimen name="menu_drawable_padding">9dp</dimen>
+    <dimen name="menu_cell_height">35dp</dimen>
+    <dimen name="basket_fragment_margin_left">3dp</dimen>
+
+	<!-- SETTINGS -->
+	<dimen name="settings_customer_service_subtitle_text_size">20sp</dimen>
+</resources>

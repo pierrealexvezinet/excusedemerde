@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="edm_blue_background" >#AAD2E9</color>
+    <color name="edm_blue_dark_background">#368ABA</color>
+    <color name="btn_accueil_color">#D98E20</color>
+    <color name="btn_forum_color">#97AC72</color>
+    <color name="btn_shopping_color">#EA877B</color>
+    <color name="btn_account_color">#D0AEC6</color>
+    <color name="btn_pipotek_color">#C6CAFB</color>
+    <color name="btn_parametres_color">#B877D6</color>
+    
+    
+    <color name="bg_start">#000000</color>
+    <color name="bg_end">#293436</color>
+    <color name="bg_mentions_start">#529d07</color>
+    <color name="bg_mentions_end">#d3ff00</color>
+    <color name="bg">#FFF</color>
+    <color name="bg_dialog">#adadad</color>
+    <color name="catalog_titlebar_background">#60ab21</color>
+    <color name="reduction_titlebar_background">#60ab21</color>
+    <color name="menu_background">#FFF</color>
+    <color name="menu_background_selected">#888</color>
+    <color name="bg_selectedcell">#3C3A3A</color>
+    <color name="bt_text">#352a26</color>
+    <color name="text_info">#999999</color>
+    <color name="text_green">#ADCB10</color>
+    <color name="text_black">#000000</color>
+    <color name="text_lightgrey">#989898</color>
+    <color name="text_grey">#888888</color>
+    <color name="blanc">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="debug">#33FF0000</color>
+    <color name="debug2">#3300FF00</color>
+    <color name="translucent_black">#AA000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="pink">#D3007E</color>
+    <color name="red">#F00</color>
+    <color name="background">#88000000</color>
+    <color name="pense_bete_text">#000000</color>
+    <color name="my_list_parent_text">#181947</color>
+    <color name="edm_green">#83af0b</color>
+    <color name="edm_green_tap">#9eca32</color>
+    <color name="edm_green_translucent">#CC83af0b</color>
+    <color name="edm_green_translucent_tap">#CC9eca32</color>
+    <color name="edm_pink">#cb0081</color>
+    <color name="edm_pink_tap">#FF82C6</color>
+    <color name="edm_pink_translucent">#CCcb0081</color>
+    <color name="edm_pink_translucent_tap">#CCFF82C6</color>
+    <color name="edm_white_translucent">#CCFFFFFF</color>
+    <color name="edm_black_translucent">#CC000000</color>
+    <color name="edm_grey_solid">#6f6d6d</color>
+    <color name="edm_orange">#ff6c00</color>
+    <color name="edm_light_orange">#ff912C</color>
+    <color name="edm_white_cream">#efeae8</color>
+    <color name="edm_cream_button">#f2eeec</color>
+    <color name="edm_light_grey">#ccc2be</color>
+    <color name="edm_black">#181947</color>
+    <color name="edm_dark_grey">#a5918a</color>
+    <color name="edm_dark_grey_translucent">#CCa5918a</color>
+    <color name="edm_button_gray_text">#a5918a</color>
+    <color name="edm_button_gray_background">#CCefeae8</color>
+    <color name="edm_button_gray_deactivated_text">#efeae8</color>
+    <color name="edm_button_gray_deactivated_background">#CCffffff</color>
+
+</resources>

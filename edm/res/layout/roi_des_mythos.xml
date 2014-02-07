@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llt_roi_des_mythos"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="0dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:scrollbars="none" >
+
+    <LinearLayout
+        android:id="@+id/llt_photo_roi_des_mythos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bt_roi_des_mythos_afficher_profil"
+        android:layout_marginTop="0dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_grand_gagnant"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/edm_blue_dark_background"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/white"
+            android:textSize="24sp" />
+        
+        
+
+        <ImageView
+            android:id="@+id/imgv_roi_des_mythos_photo"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_gravity="center_vertical|center_horizontal"  
+            android:contentDescription="@string/user_photo"
+            android:src="@drawable/avatar" />
+        
+           
+    </LinearLayout>
+    
+     <Button
+        android:id="@+id/bt_roi_des_mythos_afficher_profil"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#F09F38"
+        android:layout_alignParentBottom="true"
+        android:hint="@string/afficher_profil_roi_des_mythos"
+        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:paddingLeft="6dip"
+        android:text="@string/afficher_profil_roi_des_mythos"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+
+
+</RelativeLayout>
