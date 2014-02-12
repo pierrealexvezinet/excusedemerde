@@ -1,0 +1,29 @@
+package fr.edm.model;
+
+import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class ListTopTen {
+	
+	private ArrayList<TopTen> listTopTen;
+
+	public ListTopTen() {
+	}
+
+	public ListTopTen(ArrayList<TopTen> listTopTen) {
+		super();
+		this.listTopTen = listTopTen;
+	}
+
+	@JsonProperty(value = "listTopTen")
+	public ArrayList<TopTen> getListTopTen() {
+		return listTopTen;
+	}
+
+	public void setListTopTen(ArrayList<TopTen> listTopTen) {
+		this.listTopTen = listTopTen;
+	}
+
+
+}

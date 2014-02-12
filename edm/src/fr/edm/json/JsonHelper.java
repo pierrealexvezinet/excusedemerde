@@ -89,7 +89,7 @@ public class JsonHelper extends AsyncTask<String, Void, JSONObject> {
 			if(TYPE_JSON_RESULT.equals("list")){
 				    jsonArray = new JSONArray(result);
 					jsonObject.put("list", jsonArray);
-			}else if(TYPE_JSON_RESULT.equals("objet")){
+			}else if(TYPE_JSON_RESULT.equals("object")){
 				 jsonObject = new JSONObject(result);
 					jsonObject.put("list", jsonObject);
 			}

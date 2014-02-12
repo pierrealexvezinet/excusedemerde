@@ -2,45 +2,41 @@ package fr.edm.fragment;
 
 import java.util.ArrayList;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+
+import com.octo.android.robospice.exception.NoNetworkException;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
 
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import fr.activity.edm.R;
 import fr.edm.EdmApplication;
+import fr.edm.activity.parent.EdmFragmentActivity;
 import fr.edm.adapter.ClassementUserInTopTenAdapter;
-import fr.edm.adapter.PostEdmAdapter;
 import fr.edm.fragment.parent.EdmFragment;
-import fr.edm.json.JsonHelper;
-import fr.edm.json.JsonHelper.JsonListener;
-import fr.edm.model.ClassementUsersInTopTen;
-import fr.edm.model.Edm;
-import fr.edm.model.PostEdm;
+import fr.edm.model.ListUserInTopTen;
+import fr.edm.model.UserInTopTen;
+import fr.edm.request.edm.TopTenDesMythosRequest;
 import fr.edm.utils.ApplicationConstants;
 import fr.edm.utils.PreferenceHelper;
-import fr.edm.utils.ToolBox;
 import fr.edm.webservice.UserService;
 
 public class ClassementTopTenDesMythosFragment extends EdmFragment{
 	
 	
 	UserService userService = new UserService();
-	ArrayList<ClassementUsersInTopTen> listClassementUserInTopTen = new ArrayList<ClassementUsersInTopTen>();
+	ArrayList<UserInTopTen> listClassementUserInTopTen = new ArrayList<UserInTopTen>();
 	
-	private static ArrayList<NameValuePair> restrictionClassementUserInTopTen = new ArrayList<NameValuePair>();
-	public static ClassementUsersInTopTen classementUserInTopTen = new ClassementUsersInTopTen();
+	public static UserInTopTen classementUserInTopTen = new UserInTopTen();
 	ListView listViewClassement = null;
 	ClassementUserInTopTenAdapter adapter = null;
+	TopTenDesMythosRequest topTenDesMythosRequest;
+	ArrayList<UserInTopTen> listUserInTopTen_RS = new ArrayList<UserInTopTen>();
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,96 +48,31 @@ public class ClassementTopTenDesMythosFragment extends EdmFragment{
 		
 		
 		
-		EdmApplication.showWaitingDialogCancelableAndCloseActivity(getActivity());
-		restrictionClassementUserInTopTen.add(new BasicNameValuePair(ApplicationConstants.NUM_REQUEST, ApplicationConstants.GET_CLASSEMENT_TOP_TEN));			
+		EdmApplication.showWaitingDialog(getActivity());
 		
-		if(PreferenceHelper.getListClassementUserInTopTen() != null){
-			adapter = new ClassementUserInTopTenAdapter(getApplicationContext(), R.layout.edm_textview_classement_top_ten_des_mythos_layout);
-			listViewClassement.setAdapter(adapter);
-		    bindEdmDatas(PreferenceHelper.getListClassementUserInTopTen());
-		    listViewClassement.setScrollContainer(true);
-		    ToolBox.setListViewScrollable(listViewClassement);
-		    EdmApplication.unShowWaitingDialog();
-    
-		}else{
+		  /*spice request for all edm in accueil activity*/
+		topTenDesMythosRequest = new TopTenDesMythosRequest(ApplicationConstants.GET_CLASSEMENT_TOP_TEN);
 		
-			JsonHelper.TYPE_JSON_RESULT = "list";
-			
-		userService.getNbVoteByUserInTopTenForClassement(getActivity(), new JsonHelper("post", ApplicationConstants.URI_WS, ApplicationConstants.GET_CLASSEMENT_TOP_TEN, restrictionClassementUserInTopTen,
-				new JsonListener(){
-
-					@Override
-					public void onSuccess(JSONObject jsonObj) {
-						
-						JSONArray jsonArray = null;
-						try {
-
-							jsonArray = jsonObj.getJSONArray("list");
-							for (int i = 0; i < jsonArray.length(); i++) {
-								JSONObject map = jsonArray.getJSONObject(i);
-						
-								ClassementUsersInTopTen classementInTopTen = new ClassementUsersInTopTen();
-
-								classementInTopTen.setPseudoUserInTopTen(map.getString("auteurEdm"));
-								classementInTopTen.setUrlPhotoUserInTopTen(map.getString("photo"));
-								String countVotesByUser = String.valueOf(map.getInt("nbVoteByUserInTopTen"));
-								classementInTopTen.setNbVoteByUserInTopTen(countVotesByUser);
-				
-
-								listClassementUserInTopTen.add(classementInTopTen);
-								
-								Log.d("dede", "Call getNbVoteByUserInTopTenForClassement()");
-								Log.d("dede", ApplicationConstants.URI_WS
-										+ "?pseudo=" + classementInTopTen.getPseudoUserInTopTen() + "&"
-										+ ApplicationConstants.NUM_REQUEST
-										+ "="
-										+ ApplicationConstants.GET_CLASSEMENT_TOP_TEN
-										+ " : " + map.toString());
-							}
-							
-							PreferenceHelper.setListClassementUserInTopTen(listClassementUserInTopTen);
-
-						    bindEdmDatas(listClassementUserInTopTen);
-						    listViewClassement.setScrollContainer(true);
-						    ToolBox.setListViewScrollable(listViewClassement);
-						  
-							
-						} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-							Log.d("dede",
-									"error on call json services for getNbVoteByUserInTopTenForClassement : "
-											+ e.getMessage());
-
-						}
-
-						EdmApplication.unShowWaitingDialog();
-
-					}
-
-					@Override
-					public void onFailed(String msg) {
-						// TODO Auto-generated method stub
-						EdmApplication.unShowWaitingDialog();
-					}
-			
-		}));
+	
+		  
+		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
+			.execute(topTenDesMythosRequest, topTenDesMythosRequest.getCacheKey(), 
+					ApplicationConstants.NEVER_EXPIRE_CACHE_DATA, new TopTenRequestListener() );
 		
-	}
-		
+
 		
 		
 		return v;
 	}
 	
 	
-	void bindEdmDatas(ArrayList<ClassementUsersInTopTen> listClassementUserInTopTen){
+	void bindEdmDatas(ArrayList<UserInTopTen> listClassementUserInTopTen){
 		
 		adapter = new ClassementUserInTopTenAdapter(getApplicationContext(), R.layout.edm_textview_classement_top_ten_des_mythos_layout);
-		for(ClassementUsersInTopTen classementUserInTopTen : listClassementUserInTopTen){
+		for(UserInTopTen classementUserInTopTen : listClassementUserInTopTen){
 		
-			ClassementUsersInTopTen classementUser;
-			classementUser = new ClassementUsersInTopTen();
+			UserInTopTen classementUser;
+			classementUser = new UserInTopTen();
 			classementUser.setUrlPhotoUserInTopTen(classementUserInTopTen.getUrlPhotoUserInTopTen());
 			classementUser.setPseudoUserInTopTen(classementUserInTopTen.getPseudoUserInTopTen());
 			classementUser.setNbVoteByUserInTopTen(classementUserInTopTen.getNbVoteByUserInTopTen());
@@ -151,6 +82,41 @@ public class ClassementTopTenDesMythosFragment extends EdmFragment{
 
 		listViewClassement.setAdapter(adapter);
 	} 
+	
+	
+	
+	
+	
+	public final class  TopTenRequestListener implements RequestListener<ListUserInTopTen> {
+		
+
+		@Override
+		public void onRequestFailure(SpiceException spiceException) {	
+			if (spiceException instanceof NoNetworkException) {
+				Log.d("dede", "failure request for AccueilRequestListner " + spiceException.getCause());
+			}
+			else if (spiceException.getCause() instanceof HttpMessageNotReadableException){
+				Log.d("dede", "failure request for AccueilRequestListener " + spiceException.getCause());
+			}
+			
+			EdmApplication.unShowWaitingDialog();
+		}
+
+		@Override
+		public void onRequestSuccess(ListUserInTopTen result) {
+			// TODO Auto-generated method stub
+		
+			
+			for(UserInTopTen userInTopTen : result.getListTopTen()){
+				listUserInTopTen_RS.add(userInTopTen);
+			}
+			    PreferenceHelper.setListClassementUserInTopTen(listClassementUserInTopTen);
+				bindEdmDatas(listUserInTopTen_RS);
+				
+				EdmApplication.unShowWaitingDialog();
+			
+		}
+    }
 
 
 

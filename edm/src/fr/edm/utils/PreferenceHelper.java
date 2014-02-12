@@ -2,7 +2,7 @@ package fr.edm.utils;
 
 import java.util.ArrayList;
 
-import fr.edm.model.ClassementUsersInTopTen;
+import fr.edm.model.UserInTopTen;
 import fr.edm.model.Edm;
 import fr.edm.model.EdmUser;
 import fr.edm.model.LikeEdm;
@@ -541,11 +541,11 @@ public class PreferenceHelper {
 	public static String classementUrlPhotoUserInTopTenInPreferences;
 	public static String classementPseudoUserInTopTenInPreferences;
 	public static String nbVoteByUserInTopTenInPreferences;
-	public static ClassementUsersInTopTen classementUsersInTopTenInPreferences;
-	public static ArrayList<ClassementUsersInTopTen> listClassementUserInTopTen;
+	public static UserInTopTen classementUsersInTopTenInPreferences;
+	public static ArrayList<UserInTopTen> listClassementUserInTopTen;
 
 	public static void setClassementUsersInTopTen(
-			ClassementUsersInTopTen classementUsersInTopTenInPreferences) {
+			UserInTopTen classementUsersInTopTenInPreferences) {
 
 		classementPseudoUserInTopTenInPreferences = classementUsersInTopTenInPreferences
 				.getPseudoUserInTopTen();
@@ -557,7 +557,7 @@ public class PreferenceHelper {
 		listClassementUserInTopTen.add(classementUsersInTopTenInPreferences);
 	}
 
-	public ClassementUsersInTopTen getClassementUsersInTopTenInPreferences() {
+	public UserInTopTen getClassementUsersInTopTenInPreferences() {
 		return classementUsersInTopTenInPreferences;
 	}
 
@@ -606,17 +606,17 @@ public class PreferenceHelper {
 		PreferenceHelper.classementPseudoUserInTopTenInPreferences = classementPseudoUserInTopTenInPreferences;
 	}
 
-	public static ArrayList<ClassementUsersInTopTen> getListClassementUserInTopTen() {
+	public static ArrayList<UserInTopTen> getListClassementUserInTopTen() {
 		return listClassementUserInTopTen;
 	}
 
 	public static void setListClassementUserInTopTen(
-			ArrayList<ClassementUsersInTopTen> listClassementUserInTopTen) {
+			ArrayList<UserInTopTen> listClassementUserInTopTen) {
 		PreferenceHelper.listClassementUserInTopTen = listClassementUserInTopTen;
 	}
 
 	public static void setClassementUsersInTopTenInPreferences(
-			ClassementUsersInTopTen classementUsersInTopTenInPreferences) {
+			UserInTopTen classementUsersInTopTenInPreferences) {
 		PreferenceHelper.classementUsersInTopTenInPreferences = classementUsersInTopTenInPreferences;
 	}
 
