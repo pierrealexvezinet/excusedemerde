@@ -1,0 +1,678 @@
+[
+  {
+    "symbolicName": "effects",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "f032b1d7e34bdbe879ca94d0cac31d9d841baaed",
+    "jarFileModificationDate": "2013-10-13T19:37:48+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/android-sdk-macosx/add-ons/addon-google_apis-google-18/libs/effects.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android-support-v4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "4a6be13368bb64c5a0b0460632d228a1a915f58f",
+    "jarFileModificationDate": "2013-11-06T14:58:42+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/viewpagerindicator/libs/android-support-v4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android-support-v7-appcompat",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "d2ff6275742bd7e96429607ab2a7b121460f4303",
+    "jarFileModificationDate": "2014-02-08T00:16:26+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/appcompat/android-support-v7-appcompat/bin/android-support-v7-appcompat.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "viewpagerindicator",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "51a729f13a3106d64da75fed2e1d0fdbb7a8e68b",
+    "jarFileModificationDate": "2014-02-08T00:16:29+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/viewpagerindicator/bin/viewpagerindicator.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "usb",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "707c22e47b63ee8e70078ba04f076e1a7a40c7c1",
+    "jarFileModificationDate": "2013-10-13T19:37:48+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/android-sdk-macosx/add-ons/addon-google_apis-google-18/libs/usb.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "06b897f357f111e205017803b1d10f972e8f1075",
+    "jarFileModificationDate": "2013-08-08T04:15:41+02:00",
+    "location": "/System/Library/Java/Extensions/j3dcore.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "51dbde992ee8e0ee2e9e1be38fcc6d3295ebc66e",
+    "jarFileModificationDate": "2013-08-08T04:16:58+02:00",
+    "location": "/System/Library/Java/Extensions/AppleScriptEngine.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "gson-2.2.4-javadoc",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "be47c2ee6e9ab0668874e4c6c4933c0637f473d8",
+    "jarFileModificationDate": "2013-05-13T16:39:08+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/gson-2.2.4-javadoc.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "3992b52876ea5c35473e170f78781d8be91c6dd2",
+    "jarFileModificationDate": "2013-11-24T00:15:25+01:00",
+    "location": "/System/Library/Java/Extensions/QTJava.zip",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "8dd971cde724dfec556b5701ff3c9b8bbd262677",
+    "jarFileModificationDate": "2013-10-10T20:38:59+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/apple_provider.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "itframework",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "06cfe698dffd61dc3d7d513ac2b9eaa37119d392",
+    "jarFileModificationDate": "2014-02-08T00:16:56+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/bin/itframework.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "google-play-services",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "2dd7b1a9ea65bb03d9cd16df777eeaf537a1fc81",
+    "jarFileModificationDate": "2013-09-05T19:16:30+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/google-play-services.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.fasterxml.jackson.core.jackson-annotations",
+    "version": {
+      "major": 2,
+      "minor": 2,
+      "micro": 1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "803710196f583a03f845a6215ae3eec678aacc13",
+    "jarFileModificationDate": "2013-09-06T19:43:18+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/jackson-annotations-2.2.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jaxen-full",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "9609e8fbc28b62c53623ffaa441b666d17c7e1ef",
+    "jarFileModificationDate": "2013-03-21T13:11:30+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/jaxen-full.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "d57b4588c1c302ad017b0cf25de95dfb1b22e8fc",
+    "jarFileModificationDate": "2013-12-30T02:23:40+01:00",
+    "location": "/System/Library/Java/Extensions/MRJToolkit.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "com.octo.android.robospice.robospice",
+    "version": {
+      "major": 1,
+      "minor": 4,
+      "micro": 7,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "3a178f16e17dda50073c38ada627af3e769fd7d2",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-1.4.7.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "commons-io",
+    "version": {
+      "major": 1,
+      "minor": 3,
+      "micro": 2,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "b6dde38349ba9bb5e6ea6320531eae969985dae5",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/commons-io-1.3.2.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.fasterxml.jackson.core.jackson-core",
+    "version": {
+      "major": 2,
+      "minor": 2,
+      "micro": 1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "efe4f3ed142912df91b401b449baece2d3899802",
+    "jarFileModificationDate": "2013-09-06T19:43:18+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/jackson-core-2.2.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.fasterxml.jackson.core.jackson-annotations",
+    "version": {
+      "major": 2,
+      "minor": 2,
+      "micro": 1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "803710196f583a03f845a6215ae3eec678aacc13",
+    "jarFileModificationDate": "2013-11-06T15:15:40+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/libs/jackson-annotations-2.2.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "6d342cc086f5c4bf834664ddcdfbb4f4166446a7",
+    "jarFileModificationDate": "2013-10-10T20:22:21+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsse.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "a85d5af49e138a0adefc26bf22d2cfc8c754e6dd",
+    "jarFileModificationDate": "2013-08-08T04:11:25+02:00",
+    "location": "/System/Library/Java/Extensions/jai_codec.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "1131fd02e5ae3337bb6f58f41b5bd785bfc3b2c2",
+    "jarFileModificationDate": "2013-10-10T20:32:03+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/localedata.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "com.mysql.jdbc",
+    "version": {
+      "major": 5,
+      "minor": 1,
+      "micro": 12,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "14ae02cc2adb2aed677080a0c0356e7569e298ec",
+    "jarFileModificationDate": "2010-02-18T05:16:52+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/mysql-connector-java-5.1.12-bin.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "f0175c4c28f08b9236108499c33d6542c0bcd8b4",
+    "jarFileModificationDate": "2013-08-08T04:15:41+02:00",
+    "location": "/System/Library/Java/Extensions/j3daudio.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "63fbdd9c7e93573cc15ee487950217886be2aef6",
+    "jarFileModificationDate": "2013-12-30T02:23:45+01:00",
+    "location": "/System/Library/Java/Extensions/dns_sd.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "005810d865dab9bd200ea485d0e44c18a329aa26",
+    "jarFileModificationDate": "2013-08-08T04:15:41+02:00",
+    "location": "/System/Library/Java/Extensions/vecmath.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "92ebbef37d1a48a2e460d258e1b7a141a0ca6a28",
+    "jarFileModificationDate": "2013-10-10T20:22:21+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/sunjce_provider.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "android",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "f4f6d0685c8372195356c55b8578565fe2487825",
+    "jarFileModificationDate": "2013-10-13T18:52:39+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/android-sdk-macosx/platforms/android-18/android.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "6aac3a170091ffb8ce43705c47915a7072a6fbc5",
+    "jarFileModificationDate": "2013-10-10T20:28:14+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/sunpkcs11.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "com.fasterxml.jackson.core.jackson-databind",
+    "version": {
+      "major": 2,
+      "minor": 2,
+      "micro": 1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "002d91b238c187a7f9852d08792d0375e3e02d04",
+    "jarFileModificationDate": "2013-11-06T15:15:40+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/libs/jackson-databind-2.2.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "spring-android-rest-template-1.0.1.RELEASE",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e132d929bd181941f79b0d63edafb8a86ae6fd33",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/spring-android-rest-template-1.0.1.RELEASE.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "c5d7b7bfab9b433c4b62aebbe76a564b6bcf8192",
+    "jarFileModificationDate": "2013-08-08T04:11:00+02:00",
+    "location": "/System/Library/Java/Extensions/mlibwrapper_jai.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "com.google.gson",
+    "version": {
+      "major": 2,
+      "minor": 2,
+      "micro": 4,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "973e832af433b44c3ed11c426f2f390b29f3f3f8",
+    "jarFileModificationDate": "2013-05-13T16:39:06+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/gson-2.2.4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android-support-v4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "4a6be13368bb64c5a0b0460632d228a1a915f58f",
+    "jarFileModificationDate": "2014-02-03T01:01:52+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/appcompat/android-support-v7-appcompat/libs/android-support-v4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.google.gson.source",
+    "version": {
+      "major": 2,
+      "minor": 2,
+      "micro": 4,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "10ab84ba225b583b10713f57c04270c918ef162b",
+    "jarFileModificationDate": "2013-05-13T16:39:02+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/gson-2.2.4-sources.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e7533ef29283d456ddcc700ad2ccdd0c3452e464",
+    "jarFileModificationDate": "2013-08-08T04:15:41+02:00",
+    "location": "/System/Library/Java/Extensions/j3dutils.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "ksoap2-android-assembly-3.0.0-jar-with-dependencies",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "224c93f1824fa17b96db7250c2e5e2703d45e052",
+    "jarFileModificationDate": "2013-11-06T15:15:40+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/libs/ksoap2-android-assembly-3.0.0-jar-with-dependencies.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.octo.android.robospice.robospice-cache",
+    "version": {
+      "major": 1,
+      "minor": 4,
+      "micro": 7,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "86931c60ad87d949269100262620ef5a873c7608",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-cache-1.4.7.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "70e3f9e76e3d5884415516c0cee0855295bcb571",
+    "jarFileModificationDate": "2013-10-10T20:22:21+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "ea45c5d84b402679dd74825b0806a269a3cd4aee",
+    "jarFileModificationDate": "2013-10-10T20:32:12+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "spring-android-core-1.0.1.RELEASE",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e68f0e8e4b636ee30c4de58953be38d9b72a5e3b",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/spring-android-core-1.0.1.RELEASE.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e8f132406a3a24842242815287e32bb1d7ed0b97",
+    "jarFileModificationDate": "2014-01-24T00:50:50+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/android-sdk-macosx/platforms/android-19/android.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.octo.android.robospice.robospice-spring-android",
+    "version": {
+      "major": 1,
+      "minor": 4,
+      "micro": 7,
+      "qualifier": "SNAPSHOT"
+    },
+    "jarFileFingerprint": "f9422f4b98fc60e184a55d36f377b4c58cf7e58b",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-spring-android-1.4.7-SNAPSHOT.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.nostra13.universalimageloader.universal-image-loader",
+    "version": {
+      "major": 1,
+      "minor": 8,
+      "micro": 6,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "09995ba681982ca129af798c9eb21e79c4bffa45",
+    "jarFileModificationDate": "2013-11-06T15:15:40+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/libs/universal-image-loader-1.8.6.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.fasterxml.jackson.core.jackson-core",
+    "version": {
+      "major": 2,
+      "minor": 2,
+      "micro": 1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "efe4f3ed142912df91b401b449baece2d3899802",
+    "jarFileModificationDate": "2013-11-06T15:15:40+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/libs/jackson-core-2.2.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "0bb518175e479ab8291700f8e33ea16fccf4ae9d",
+    "jarFileModificationDate": "2013-10-10T20:38:52+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/ui.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "android-support-v7-appcompat",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "b2d9f83181635731db297fd7c59a9049c5ccbffd",
+    "jarFileModificationDate": "2014-02-03T01:01:52+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/appcompat/android-support-v7-appcompat/libs/android-support-v7-appcompat.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "21240ab7c12f378058cbb7a9b2f5b762dd30e1b8",
+    "jarFileModificationDate": "2013-08-08T04:11:25+02:00",
+    "location": "/System/Library/Java/Extensions/jai_core.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "maps",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "9e08d4a8b70a2852248f3291b72cf5c8a9ee1d00",
+    "jarFileModificationDate": "2013-10-13T19:37:48+02:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/android-sdk-macosx/add-ons/addon-google_apis-google-18/libs/maps.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "17cb77e6b97b7d53eac15eb338d289d6ad70d64a",
+    "jarFileModificationDate": "2013-10-10T20:36:08+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "org.apache.commons.lang3",
+    "version": {
+      "major": 3,
+      "minor": 1,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "905075e6c80f206bbe6cf1e809d2caa69f420c76",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/commons-lang3-3.1.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "a84551888636d4e693dc9b483ad69a6a78ad9d74",
+    "jarFileModificationDate": "2013-12-30T02:23:43+01:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/dnsns.jar",
+    "javaRuntime": true
+  }
+]

@@ -1,2 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="fr.edm.parent.request.EdmSpiceRequest"/>
+<fullyQualifiedTypeName name="fr.edm.model.TopTen"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="fr.edm.model.ListTopTen"/>
+<fullyQualifiedTypeName name="fr.edm.request.edm.TopTenDesMythosRequest"/>
+<fullyQualifiedTypeName name="fr.edm.model.ListUserInTopTen"/>
+<fullyQualifiedTypeName name="fr.edm.model.UserInTopTen"/>
+<fullyQualifiedTypeName name="fr.edm.fragment.ClassementTopTenDesMythosFragment.TopTenRequestListener"/>
+<fullyQualifiedTypeName name="fr.edm.EdmApplication"/>
+</qualifiedTypeNameHistroy>

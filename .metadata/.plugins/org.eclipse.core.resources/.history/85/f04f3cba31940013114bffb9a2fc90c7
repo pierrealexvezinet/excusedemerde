@@ -7,7 +7,7 @@ import com.itelios.itframework.ITApplication;
 
 import fr.activity.edm.R;
 import fr.edm.EdmApplication;
-import fr.edm.model.ClassementUsersInTopTen;
+import fr.edm.model.UserInTopTen;
 import fr.edm.utils.ImageLoader;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -18,12 +18,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ClassementUserInTopTenAdapter extends ArrayAdapter<ClassementUsersInTopTen>{
+public class ClassementUserInTopTenAdapter extends ArrayAdapter<UserInTopTen>{
 	
 	private LayoutInflater mInflater = null;
-	public ClassementUsersInTopTen storage = new ClassementUsersInTopTen();
+	public UserInTopTen storage = new UserInTopTen();
 	StorageClassementUserInTopTenRelativeLayoutDatas layoutDatas;
-	ArrayList<ClassementUsersInTopTen> currentListClassementUsers = new ArrayList<ClassementUsersInTopTen>();
+	ArrayList<UserInTopTen> currentListClassementUsers = new ArrayList<UserInTopTen>();
 	int resource =0;
 	
 
@@ -54,7 +54,7 @@ public class ClassementUserInTopTenAdapter extends ArrayAdapter<ClassementUsersI
 			layoutDatas = (StorageClassementUserInTopTenRelativeLayoutDatas) row.getTag();
 		}
 
-		ClassementUsersInTopTen entity = getItem(position);
+		UserInTopTen entity = getItem(position);
 
         ITApplication.getImageLoader().displayImage(entity.getUrlPhotoUserInTopTen(),layoutDatas.userImage);
 		// Bitmap bitmap = ImageLoader.DownloadImage(entity.getUrlPhotoUserInTopTen());

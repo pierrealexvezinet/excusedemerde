@@ -56,7 +56,7 @@ public class ClassementUserInTopTenAdapter extends ArrayAdapter<UserInTopTen>{
 
 		UserInTopTen entity = getItem(position);
 
-        ITApplication.getImageLoader().displayImage(entity.getUrlPhotoUserInTopTen(),layoutDatas.userImage);
+       // ITApplication.getImageLoader().displayImage(entity.getUrlPhotoUserInTopTen(),layoutDatas.userImage);
 		// Bitmap bitmap = ImageLoader.DownloadImage(entity.getUrlPhotoUserInTopTen());
    
 		
