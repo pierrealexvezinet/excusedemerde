@@ -1,13 +1,10 @@
 package fr.edm.fragment;
 
 import java.util.ArrayList;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import com.octo.android.robospice.exception.NoNetworkException;
+import com.octo.android.robospice.persistence.exception.SpiceException;
+import com.octo.android.robospice.request.listener.RequestListener;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,13 +17,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import fr.activity.edm.R;
 import fr.edm.EdmApplication;
+import fr.edm.activity.parent.EdmFragmentActivity;
 import fr.edm.fragment.parent.EdmFragment;
-import fr.edm.json.JsonHelper;
-import fr.edm.json.JsonHelper.JsonListener;
+import fr.edm.model.ListRoiDesMythos;
 import fr.edm.model.RoiDesMythos;
+import fr.edm.request.edm.RoiDesMythosRequest;
 import fr.edm.utils.ApplicationConstants;
 import fr.edm.utils.ImageLoader;
-import fr.edm.utils.PreferenceHelper;
 import fr.edm.webservice.UserService;
 
 public class RoiDesMythosFragment extends EdmFragment implements OnClickListener {
@@ -35,8 +32,9 @@ public class RoiDesMythosFragment extends EdmFragment implements OnClickListener
 	ImageView imvGrandGagnant;
 	Button btAfficherProfil; 
 	UserService userService = new UserService();
+	RoiDesMythosRequest roiDesMythosRequest;
 	ArrayList<RoiDesMythos> listRoiDesMythos = new ArrayList<RoiDesMythos>();
-	private static ArrayList<NameValuePair> restrictionRoiDesMythosUser = new ArrayList<NameValuePair>();
+	com.nostra13.universalimageloader.core.ImageLoader imageLoader = null;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,70 +47,48 @@ public class RoiDesMythosFragment extends EdmFragment implements OnClickListener
 		btAfficherProfil = (Button) v.findViewById(R.id.bt_roi_des_mythos_afficher_profil);
 		
 		btAfficherProfil.setOnClickListener(this);
+		imageLoader = EdmApplication.getImageLoader();
 		
 		
 		
-		EdmApplication.showWaitingDialogCancelableAndCloseActivity(getActivity());
-		restrictionRoiDesMythosUser.add(new BasicNameValuePair(ApplicationConstants.NUM_REQUEST, ApplicationConstants.GET_ROI_DES_MYTHOS_USER));			
+		EdmApplication.showWaitingDialog(getActivity());
 		
-		
-		if(PreferenceHelper.getRoiDesMythosInPreferences() != null){
-			 tvGrandGagnant.setText(PreferenceHelper.getRoiDesMythosPseudoInPreferences()+ " avec " + PreferenceHelper.getRoiDesMythosnbVoteInPreferences() + " vote(s) ");
-		     Bitmap bitmap = ImageLoader.DownloadImage(PreferenceHelper.getRoiDesMythosUrlPhotoUserInPreferences());
-			 imvGrandGagnant.setImageBitmap(bitmap);
-			 EdmApplication.unShowWaitingDialog();
-		}else{
-		
-		userService.getUserRoiDesMythos(getActivity() ,new JsonHelper("post", ApplicationConstants.URI_WS, ApplicationConstants.GET_ROI_DES_MYTHOS_USER, restrictionRoiDesMythosUser,
-				new JsonListener(){
-
-					@Override
-					public void onSuccess(JSONObject jsonObj) {
-						
-						JSONArray jsonArray = null;
-						try {
-							jsonArray = jsonObj.getJSONArray("list");
-						
-						
-							JSONObject map = jsonArray.getJSONObject(0);
-					
-							RoiDesMythos roiDesMythos = new RoiDesMythos();
-							
-							roiDesMythos.setPseudoRoiDesMythos(map.getString("auteurEdm"));
-							roiDesMythos.setUrlPhotoRoiDesMythos(map.getString("photo"));
-							String nbVote = String.valueOf(map.getInt("nb_vote"));
-							roiDesMythos.setNbVoteRoiDesMythos(nbVote);
-							
-							 tvGrandGagnant.setText(roiDesMythos.getPseudoRoiDesMythos()+ " avec " + roiDesMythos.getNbVoteRoiDesMythos() + " vote(s) ");
-						     Bitmap bitmap = ImageLoader.DownloadImage(roiDesMythos.getUrlPhotoRoiDesMythos());
-							 imvGrandGagnant.setImageBitmap(bitmap);
-						PreferenceHelper.setRoiDesMythosInPreferences(roiDesMythos);
-							
-					
-				
-				} catch (JSONException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-							Log.d("dede", "Exception levee : " + e.getMessage());
-						}
-						
-						 EdmApplication.unShowWaitingDialog();
-						
-					}
-
-					@Override
-					public void onFailed(String msg) {
-						// TODO Auto-generated method stub
-						Log.d("dede", "Error on getting roi des mythos : " + msg);
-						 EdmApplication.unShowWaitingDialog();
-					}
-			
-		}));
-	}
+		roiDesMythosRequest = new RoiDesMythosRequest(ApplicationConstants.GET_ROI_DES_MYTHOS_USER);
+  		
+		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
+			.execute(roiDesMythosRequest, roiDesMythosRequest.getCacheKey(), 
+					ApplicationConstants.ONE_HOUR_EXPIRE_CACHE_DATA, new RoiDesMythosRequestListener());
 	
-		
 		return v;
 	}
+	
+	
+	 public final class  RoiDesMythosRequestListener implements RequestListener<ListRoiDesMythos> {
+			
+
+			@Override
+			public void onRequestFailure(SpiceException spiceException) {	
+				if (spiceException instanceof NoNetworkException) {
+					Log.d("dede", "failure request for EdmsUserRequestListener " + spiceException.getCause());
+				}
+				else if (spiceException.getCause() instanceof HttpMessageNotReadableException){
+					Log.d("dede", "failure request for EdmsUserRequestListener " + spiceException.getCause());
+				}
+			}
+
+			@Override
+			public void onRequestSuccess(ListRoiDesMythos result) {
+				// TODO Auto-generated method stub
+				
+				    tvGrandGagnant.setText(result.getListRoiDesMythos().get(0).getPseudoRoiDesMythos() + " avec " + result.getListRoiDesMythos().get(0).getNbVoteRoiDesMythos() + " vote(s) ");
+				    Bitmap bitmap = ImageLoader.DownloadImage(result.getListRoiDesMythos().get(0).getUrlPhotoRoiDesMythos());
+				   // imageLoader.displayImage(result.getListRoiDesMythos().get(0).getUrlPhotoRoiDesMythos(),imvGrandGagnant);	
+					imvGrandGagnant.setImageBitmap(bitmap);
+					EdmApplication.unShowWaitingDialog();    
+				    
+			}
+	    }
+	 
 
 	@Override
 	public void onClick(View v) {
@@ -122,5 +98,6 @@ public class RoiDesMythosFragment extends EdmFragment implements OnClickListener
 		}
 		
 	}
+
 
 }

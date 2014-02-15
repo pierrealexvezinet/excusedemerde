@@ -1,0 +1,5 @@
+package fr.edm.request.edm;
+
+public class RoiDesMythosRequest {
+
+}

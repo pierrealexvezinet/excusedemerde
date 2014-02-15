@@ -14,7 +14,9 @@ import com.octo.android.robospice.request.listener.RequestListener;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,8 +54,8 @@ public class MesEdmsFragment extends EdmFragment {
 	UserEdmsRequest userEdmRequest;
     ArrayList<EdmUser> listUserEdmS_RS = new ArrayList<EdmUser>();
 	ArrayList<EdmUser> listUserEdmS = new ArrayList<EdmUser>();
-	
-	
+	String loginUser, mdpUser, isSafedUser = "";
+	SharedPreferences preferences = null;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,12 +63,24 @@ public class MesEdmsFragment extends EdmFragment {
 
 		View v = inflater.inflate(R.layout.mes_edms_fragment, container, false);
 		listViewUserEdm = (ListView) v.findViewById(R.id.mes_edm_listview);
+		preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
 		/************************* GET USER EDM *******************************/
 
+		 String pseudoEdmPreferences = "";
+		 loginUser = preferences.getString("loginUser", null);
+		 mdpUser = preferences.getString("mdpUser", null);
 		
+		if(loginUser != null){
+			pseudoEdmPreferences = loginUser;
+			//PreferenceHelper.getUserInPreferences().setPseudo(pseudoEdmPreferences);
+			PreferenceHelper.setPseudo(pseudoEdmPreferences);
+		}else{
+			pseudoEdmPreferences = PreferenceHelper.getUserInPreferences().getPseudo();
+			PreferenceHelper.setPseudo(pseudoEdmPreferences);
+		}
 
-		 String pseudoEdmPreferences = PreferenceHelper.getUserInPreferences().getPseudo();
+		
 	
 		if(pseudoEdmPreferences != null){
 			
@@ -79,7 +93,7 @@ public class MesEdmsFragment extends EdmFragment {
 	  		
 	  		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
 	  			.execute(userEdmRequest, userEdmRequest.getCacheKey(), 
-	  					DurationInMillis.NEVER, new UserEdmsRequestListener());
+	  					ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new UserEdmsRequestListener());
 	  		  
 	  		  EdmApplication.unShowWaitingDialog();
 			

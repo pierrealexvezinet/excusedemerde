@@ -1,5 +1,7 @@
 package fr.edm.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class RoiDesMythos {
 	
 	public String urlPhotoRoiDesMythos, pseudoRoiDesMythos, nbVoteRoiDesMythos;
@@ -19,7 +21,7 @@ public class RoiDesMythos {
 	}
 
 
-
+	@JsonProperty(value = "photo")
 	public String getUrlPhotoRoiDesMythos() {
 		return urlPhotoRoiDesMythos;
 	}
@@ -27,7 +29,7 @@ public class RoiDesMythos {
 	public void setUrlPhotoRoiDesMythos(String urlPhotoRoiDesMythos) {
 		this.urlPhotoRoiDesMythos = urlPhotoRoiDesMythos;
 	}
-
+	@JsonProperty(value = "auteurEdm")
 	public String getPseudoRoiDesMythos() {
 		return pseudoRoiDesMythos;
 	}
@@ -35,7 +37,7 @@ public class RoiDesMythos {
 	public void setPseudoRoiDesMythos(String pseudoRoiDesMythos) {
 		this.pseudoRoiDesMythos = pseudoRoiDesMythos;
 	}
-
+	@JsonProperty(value = "nb_vote")
 	public String getNbVoteRoiDesMythos() {
 		return nbVoteRoiDesMythos;
 	}
