@@ -21,11 +21,11 @@
 
             <ImageView
                 android:id="@+id/imgv_user_photo"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_marginTop="20dp"
-                android:layout_height="140dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
+                android:layout_height="220dp"
+            
+               
                 android:contentDescription="@string/user_photo"
                 android:src="@drawable/avatar" />
 

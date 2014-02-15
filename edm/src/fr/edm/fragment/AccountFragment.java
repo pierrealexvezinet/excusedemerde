@@ -119,8 +119,8 @@ public class AccountFragment extends EdmFragment implements OnClickListener {
 		
 		String nbEdmUser = "0";
 		
-		if(PreferenceHelper.listUserEdm != null){
-		 nbEdmUser = String.valueOf(PreferenceHelper.getListUserEdm().size());
+		if(PreferenceHelper.getCountEdmsUser() > 0){
+		 nbEdmUser = String.valueOf(PreferenceHelper.getCountEdmsUser());
 		}
 		
 		return nbEdmUser;

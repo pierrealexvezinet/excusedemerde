@@ -251,6 +251,7 @@ public class PreferenceHelper {
 
 	public static String numEdm, victime, categorie, contenu, datePost,
 			heurePost, pseudo_foreignKey_Edm;
+	public static int countEdmsUser = 0;
 	public static Edm edm = null;
 	public static ArrayList<Edm> listEdm = null;
 
@@ -274,7 +275,7 @@ public class PreferenceHelper {
 		// listEdm.add(edm);
 	}
 
-	public static String nbEdmsUser() {
+	public static String getNbEdmsUserToString() {
 
 		String nbEdmUser = "0";
 
@@ -284,6 +285,15 @@ public class PreferenceHelper {
 		}
 
 		return nbEdmUser;
+	}
+	
+	public static int getCountEdmsUser(){
+		countEdmsUser = PreferenceHelper.getListUserEdm().size();
+		return countEdmsUser;
+	}
+	
+	public static void setCountEdmsUser(int edmUnity){
+		countEdmsUser += edmUnity;
 	}
 
 	public static String getNumEdm() {

@@ -10,6 +10,7 @@ import com.octo.android.robospice.request.listener.RequestListener;
 
 import fr.activity.edm.R;
 import fr.edm.activity.parent.EdmFragmentActivity;
+import fr.edm.model.ListEdmsUser;
 import fr.edm.model.ListUsers;
 import fr.edm.model.User;
 import fr.edm.request.edm.LoginUserRequest;
@@ -76,7 +77,15 @@ public class SplashActivity extends Activity
 		
 		spiceManager
 			.execute(loginUserRequest, loginUserRequest.getCacheKey(), 
-					DurationInMillis.NEVER, new LoginRequestListener() );
+					ApplicationConstants.NEVER_EXPIRE_CACHE_DATA, new LoginRequestListener() );
+		
+		
+		userEdmRequest = new UserEdmsRequest(ApplicationConstants.GET_USER_EDMs, loginUser);
+  		
+		spiceManager
+			.execute(userEdmRequest, userEdmRequest.getCacheKey(), 
+					ApplicationConstants.NEVER_EXPIRE_CACHE_DATA, new UserEdmsRequestListener());
+		
 	}
 
 
@@ -169,6 +178,30 @@ public class SplashActivity extends Activity
 	}
 	
 	}
+	
+	
+	 public final class  UserEdmsRequestListener implements RequestListener<ListEdmsUser> {
+			
+
+			@Override
+			public void onRequestFailure(SpiceException spiceException) {	
+				if (spiceException instanceof NoNetworkException) {
+					Log.d("dede", "failure request for EdmsUserRequestListener " + spiceException.getCause());
+				}
+				else if (spiceException.getCause() instanceof HttpMessageNotReadableException){
+					Log.d("dede", "failure request for EdmsUserRequestListener " + spiceException.getCause());
+				}
+		
+			}
+
+			@Override
+			public void onRequestSuccess(ListEdmsUser result) {
+				// TODO Auto-generated method stub
+			        PreferenceHelper.setListUserEdm(result.getListEdmsUser());    
+			       
+			}
+	    }
+	
 
     
 }
