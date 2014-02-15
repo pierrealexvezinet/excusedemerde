@@ -1,10 +1,10 @@
 package fr.edm.fragment;
 
 import fr.activity.edm.R;
+import fr.edm.EdmApplication;
 import fr.edm.activity.EditionProfilActivity;
 import fr.edm.fragment.parent.EdmFragment;
 import fr.edm.model.User;
-import fr.edm.utils.ImageLoader;
 import fr.edm.utils.PreferenceHelper;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.itelios.itframework.image.*;
 
 public class AccountFragment extends EdmFragment implements OnClickListener {
 
@@ -81,16 +82,17 @@ public class AccountFragment extends EdmFragment implements OnClickListener {
 		String photoUser = user.getPhoto();
 		Log.d("tete", "photo url" +  user.getPhoto());
 		if(user.getPhoto() != null){
-		 Bitmap bitmap = ImageLoader.DownloadImage(user.getPhoto());
-	        imageUser.setImageBitmap(bitmap);
-		}else{
-	    Bitmap bitmap = ImageLoader.DownloadImage("http://www.excuse-de-merde.fr/img/avatar.jpg");
-            imageUser.setImageBitmap(bitmap);
-   
+		// Bitmap bitmap = ImageLoader.DownloadImage(user.getPhoto());
+	        //imageUser.setImageBitmap(bitmap);
+	        
+	        ImageLoader imageLoader = new ImageLoader(getApplicationContext());
+			
+			imageLoader.DisplayImage(photoUser, R.id.imgv_user_photo, imageUser);
+	    	EdmApplication.unShowWaitingDialog();    
+	        
+	        
 		}
-		
-		
-		
+
 		Log.d("tete", "ville "+user.getVille() );
         
 		if(PreferenceHelper.getUserInPreferences().getVille() == null){

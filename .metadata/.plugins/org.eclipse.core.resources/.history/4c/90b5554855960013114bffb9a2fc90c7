@@ -1,0 +1,5 @@
+package com.itelios.itframework.image;
+
+public class ImageLoader {
+
+}

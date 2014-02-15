@@ -84,9 +84,7 @@ public class ClassementTopTenDesMythosFragment extends EdmFragment{
 	} 
 	
 	
-	
-	
-	
+
 	public final class  TopTenRequestListener implements RequestListener<ListUserInTopTen> {
 		
 

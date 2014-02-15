@@ -5,7 +5,6 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import com.octo.android.robospice.exception.NoNetworkException;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,8 +22,8 @@ import fr.edm.model.ListRoiDesMythos;
 import fr.edm.model.RoiDesMythos;
 import fr.edm.request.edm.RoiDesMythosRequest;
 import fr.edm.utils.ApplicationConstants;
-import fr.edm.utils.ImageLoader;
 import fr.edm.webservice.UserService;
+import com.itelios.itframework.image.*;
 
 public class RoiDesMythosFragment extends EdmFragment implements OnClickListener {
 	
@@ -34,7 +33,7 @@ public class RoiDesMythosFragment extends EdmFragment implements OnClickListener
 	UserService userService = new UserService();
 	RoiDesMythosRequest roiDesMythosRequest;
 	ArrayList<RoiDesMythos> listRoiDesMythos = new ArrayList<RoiDesMythos>();
-	com.nostra13.universalimageloader.core.ImageLoader imageLoader = null;
+
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +46,7 @@ public class RoiDesMythosFragment extends EdmFragment implements OnClickListener
 		btAfficherProfil = (Button) v.findViewById(R.id.bt_roi_des_mythos_afficher_profil);
 		
 		btAfficherProfil.setOnClickListener(this);
-		imageLoader = EdmApplication.getImageLoader();
+		//imageLoader = EdmApplication.getImageLoader();
 		
 		
 		
@@ -80,11 +79,10 @@ public class RoiDesMythosFragment extends EdmFragment implements OnClickListener
 			public void onRequestSuccess(ListRoiDesMythos result) {
 				// TODO Auto-generated method stub
 				
-				    tvGrandGagnant.setText(result.getListRoiDesMythos().get(0).getPseudoRoiDesMythos() + " avec " + result.getListRoiDesMythos().get(0).getNbVoteRoiDesMythos() + " vote(s) ");
-				    Bitmap bitmap = ImageLoader.DownloadImage(result.getListRoiDesMythos().get(0).getUrlPhotoRoiDesMythos());
-				   // imageLoader.displayImage(result.getListRoiDesMythos().get(0).getUrlPhotoRoiDesMythos(),imvGrandGagnant);	
-					imvGrandGagnant.setImageBitmap(bitmap);
-					EdmApplication.unShowWaitingDialog();    
+				ImageLoader imageLoader = new ImageLoader(getApplicationContext());
+				tvGrandGagnant.setText(result.getListRoiDesMythos().get(0).getPseudoRoiDesMythos() + " avec " + result.getListRoiDesMythos().get(0).getNbVoteRoiDesMythos() + " vote(s) ");
+				imageLoader.DisplayImage(result.getListRoiDesMythos().get(0).getUrlPhotoRoiDesMythos(), R.id.imgv_roi_des_mythos_photo, imvGrandGagnant);
+		    	EdmApplication.unShowWaitingDialog();    
 				    
 			}
 	    }

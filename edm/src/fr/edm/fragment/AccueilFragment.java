@@ -83,6 +83,8 @@ public class AccueilFragment extends EdmFragment {
 		   View v = inflater.inflate(R.layout.accueil_fragment, container, false);
 		   listViewEdm = (ListView) v.findViewById(R.id.edm_listview);
 		   
+		   EdmApplication.showWaitingDialog(getActivity());
+		   
 		   /*spice request for all edm in accueil activity*/
 		  allEdmRequest = new AllEdmsRequest(ApplicationConstants.GET_ALL_EDMs);
 		
@@ -179,6 +181,8 @@ public class AccueilFragment extends EdmFragment {
 			else if (spiceException.getCause() instanceof HttpMessageNotReadableException){
 				Log.d("dede", "failure request for AccueilRequestListener " + spiceException.getCause());
 			}
+			
+			EdmApplication.unShowWaitingDialog();
 		}
 
 		@Override
@@ -191,6 +195,7 @@ public class AccueilFragment extends EdmFragment {
 			}
 			    PreferenceHelper.setListAllEdm(listUserEdmS_RS);
 				bindEdmDatas(listUserEdmS_RS);
+				EdmApplication.unShowWaitingDialog();
 			
 		}
     }

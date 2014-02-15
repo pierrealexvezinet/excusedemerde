@@ -93,7 +93,7 @@ public class MesEdmsFragment extends EdmFragment {
 	  		
 	  		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
 	  			.execute(userEdmRequest, userEdmRequest.getCacheKey(), 
-	  					ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new UserEdmsRequestListener());
+	  					ApplicationConstants.NEVER_EXPIRE_CACHE_DATA, new UserEdmsRequestListener());
 	  		  
 	  		  EdmApplication.unShowWaitingDialog();
 			
@@ -160,6 +160,7 @@ public class MesEdmsFragment extends EdmFragment {
 				else if (spiceException.getCause() instanceof HttpMessageNotReadableException){
 					Log.d("dede", "failure request for EdmsUserRequestListener " + spiceException.getCause());
 				}
+				EdmApplication.unShowWaitingDialog();
 			}
 
 			@Override
