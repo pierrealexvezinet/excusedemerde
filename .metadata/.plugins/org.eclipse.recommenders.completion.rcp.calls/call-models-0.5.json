@@ -8,5 +8,30 @@
     "location": "/Users/Pierre-AlexandreVezinet/Documents/android-sdk-macosx/platforms/android-19/android.jar",
     "status": "UNRESOLVED",
     "error": "No call model found for \u0027/Users/Pierre-AlexandreVezinet/Documents/android-sdk-macosx/platforms/android-19/android.jar\u0027. Neither fingerprint \u0027e8f132406a3a24842242815287e32bb1d7ed0b97\u0027 nor symbolic name \u0027android\u0027 are known."
+  },
+  "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-cache-1.4.7.jar": {
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-cache-1.4.7.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-cache-1.4.7.jar\u0027. Neither fingerprint \u002786931c60ad87d949269100262620ef5a873c7608\u0027 nor symbolic name \u0027com.octo.android.robospice.robospice-cache\u0027 are known."
+  },
+  "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/bin/itframework.jar": {
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/bin/itframework.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/bin/itframework.jar\u0027. Neither fingerprint \u002706cfe698dffd61dc3d7d513ac2b9eaa37119d392\u0027 nor symbolic name \u0027itframework\u0027 are known."
+  },
+  "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/libs/universal-image-loader-1.8.6.jar": {
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/libs/universal-image-loader-1.8.6.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/libs/universal-image-loader-1.8.6.jar\u0027. Neither fingerprint \u002709995ba681982ca129af798c9eb21e79c4bffa45\u0027 nor symbolic name \u0027com.nostra13.universalimageloader.universal-image-loader\u0027 are known."
+  },
+  "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/gen": {
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/gen",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/Users/Pierre-AlexandreVezinet/excusedemerde/edm/gen\u0027. Skipped."
+  },
+  "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-1.4.7.jar": {
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-1.4.7.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-1.4.7.jar\u0027. Neither fingerprint \u00273a178f16e17dda50073c38ada627af3e769fd7d2\u0027 nor symbolic name \u0027com.octo.android.robospice.robospice\u0027 are known."
   }
 }

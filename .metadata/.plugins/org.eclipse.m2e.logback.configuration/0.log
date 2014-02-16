@@ -136,3 +136,4 @@ java.lang.IllegalArgumentException: Unexpected delimiter '-'; Expected delimiter
 	at java.lang.Thread.run(Thread.java:695) [na:1.6.0_65]
 2014-02-08 18:18:35,480 [pool-8-thread-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
 2014-02-15 00:09:17,158 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-16 21:31:32,114 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8

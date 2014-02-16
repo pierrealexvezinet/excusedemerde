@@ -43,6 +43,11 @@ import fr.edm.webservice.EdmService;
 import fr.edm.webservice.UserService;
 
 public class LoginFragment extends EdmFragment implements OnClickListener {
+	
+	
+	public LoginFragment(){
+		
+	}
 
 	/**
 	 * @author pvezinet
@@ -94,6 +99,16 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
 
 		return v;
 	}
+	
+	
+	public  void getUserRequest(){
+		 /*spice request for all edm in accueil activity*/
+  		loginUserRequest = new LoginUserRequest(ApplicationConstants.LOGIN_USER, etLogin.getText().toString(), etPassword.getText().toString());
+  
+  		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
+  			.execute(loginUserRequest, loginUserRequest.getCacheKey(), 
+  					ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new LoginRequestListener() );
+	}
 
 	@Override
 	public void onClick(View v) {
@@ -104,15 +119,7 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
            EdmApplication.showWaitingDialog(getActivity());
            
            
-
-  		 /*spice request for all edm in accueil activity*/
-  		loginUserRequest = new LoginUserRequest(ApplicationConstants.LOGIN_USER, etLogin.getText().toString(), etPassword.getText().toString());
-  		
-  		
-  		  
-  		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
-  			.execute(loginUserRequest, loginUserRequest.getCacheKey(), 
-  					ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new LoginRequestListener() );
+           getUserRequest();
   		  
   	// ((EdmFragmentActivity) getActivity()).getSpiceManager().getFromCache(ListUsers.class, "LoginUserRequest"+ApplicationConstants.GET_USER, DurationInMillis.NEVER, null);
 	

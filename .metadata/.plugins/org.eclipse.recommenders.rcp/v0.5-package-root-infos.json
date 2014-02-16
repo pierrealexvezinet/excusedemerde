@@ -33,8 +33,8 @@
       "micro": -1,
       "qualifier": ""
     },
-    "jarFileFingerprint": "d2ff6275742bd7e96429607ab2a7b121460f4303",
-    "jarFileModificationDate": "2014-02-08T00:16:26+01:00",
+    "jarFileFingerprint": "d8f901f964f1dcb9aa08046ab69657bec63a001e",
+    "jarFileModificationDate": "2014-02-12T23:11:37+01:00",
     "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/appcompat/android-support-v7-appcompat/bin/android-support-v7-appcompat.jar",
     "javaRuntime": false
   },
@@ -46,8 +46,8 @@
       "micro": -1,
       "qualifier": ""
     },
-    "jarFileFingerprint": "51a729f13a3106d64da75fed2e1d0fdbb7a8e68b",
-    "jarFileModificationDate": "2014-02-08T00:16:29+01:00",
+    "jarFileFingerprint": "e42bc6755ef8917053bf389b09637efb5ff208c0",
+    "jarFileModificationDate": "2014-02-12T23:11:39+01:00",
     "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/viewpagerindicator/bin/viewpagerindicator.jar",
     "javaRuntime": false
   },
@@ -91,6 +91,32 @@
     "javaRuntime": true
   },
   {
+    "symbolicName": "spring-android-core-1.0.1.RELEASE",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e68f0e8e4b636ee30c4de58953be38d9b72a5e3b",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/spring-android-core-1.0.1.RELEASE.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "b50d42b32e1d8a6c2d5f19a846474d5e2199c68e",
+    "jarFileModificationDate": "2013-01-16T12:23:26+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/android-sdk-macosx/platforms/android-10/android.jar",
+    "javaRuntime": false
+  },
+  {
     "symbolicName": "gson-2.2.4-javadoc",
     "version": {
       "major": -1,
@@ -130,16 +156,16 @@
     "javaRuntime": true
   },
   {
-    "symbolicName": "itframework",
+    "symbolicName": "com.octo.android.robospice.robospice-cache",
     "version": {
-      "major": -1,
-      "minor": -1,
-      "micro": -1,
+      "major": 1,
+      "minor": 4,
+      "micro": 7,
       "qualifier": ""
     },
-    "jarFileFingerprint": "06cfe698dffd61dc3d7d513ac2b9eaa37119d392",
-    "jarFileModificationDate": "2014-02-08T00:16:56+01:00",
-    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/bin/itframework.jar",
+    "jarFileFingerprint": "86931c60ad87d949269100262620ef5a873c7608",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/robospice-cache-1.4.7.jar",
     "javaRuntime": false
   },
   {
@@ -153,6 +179,19 @@
     "jarFileFingerprint": "2dd7b1a9ea65bb03d9cd16df777eeaf537a1fc81",
     "jarFileModificationDate": "2013-09-05T19:16:30+02:00",
     "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/google-play-services.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "spring-android-rest-template-1.0.1.RELEASE",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "e132d929bd181941f79b0d63edafb8a86ae6fd33",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/spring-android-rest-template-1.0.1.RELEASE.jar",
     "javaRuntime": false
   },
   {
@@ -195,16 +234,16 @@
     "javaRuntime": true
   },
   {
-    "symbolicName": "com.octo.android.robospice.robospice",
+    "symbolicName": "org.apache.commons.lang3",
     "version": {
-      "major": 1,
-      "minor": 4,
-      "micro": 7,
+      "major": 3,
+      "minor": 1,
+      "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "3a178f16e17dda50073c38ada627af3e769fd7d2",
+    "jarFileFingerprint": "905075e6c80f206bbe6cf1e809d2caa69f420c76",
     "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
-    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/robospice-1.4.7.jar",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/commons-lang3-3.1.jar",
     "javaRuntime": false
   },
   {
@@ -267,9 +306,9 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "a85d5af49e138a0adefc26bf22d2cfc8c754e6dd",
-    "jarFileModificationDate": "2013-08-08T04:11:25+02:00",
-    "location": "/System/Library/Java/Extensions/jai_codec.jar",
+    "jarFileFingerprint": "1131fd02e5ae3337bb6f58f41b5bd785bfc3b2c2",
+    "jarFileModificationDate": "2013-10-10T20:32:03+02:00",
+    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/localedata.jar",
     "javaRuntime": true
   },
   {
@@ -280,9 +319,48 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "1131fd02e5ae3337bb6f58f41b5bd785bfc3b2c2",
-    "jarFileModificationDate": "2013-10-10T20:32:03+02:00",
-    "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/localedata.jar",
+    "jarFileFingerprint": "a85d5af49e138a0adefc26bf22d2cfc8c754e6dd",
+    "jarFileModificationDate": "2013-08-08T04:11:25+02:00",
+    "location": "/System/Library/Java/Extensions/jai_codec.jar",
+    "javaRuntime": true
+  },
+  {
+    "symbolicName": "capptain",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "c668b20bf8c0a2b0d3882e6e2d1761ac14876e2d",
+    "jarFileModificationDate": "2013-11-06T14:58:40+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/capptain.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "commons-io",
+    "version": {
+      "major": 1,
+      "minor": 3,
+      "micro": 2,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "b6dde38349ba9bb5e6ea6320531eae969985dae5",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/commons-io-1.3.2.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "jre",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "f0175c4c28f08b9236108499c33d6542c0bcd8b4",
+    "jarFileModificationDate": "2013-08-08T04:15:41+02:00",
+    "location": "/System/Library/Java/Extensions/j3daudio.jar",
     "javaRuntime": true
   },
   {
@@ -306,9 +384,9 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "f0175c4c28f08b9236108499c33d6542c0bcd8b4",
+    "jarFileFingerprint": "005810d865dab9bd200ea485d0e44c18a329aa26",
     "jarFileModificationDate": "2013-08-08T04:15:41+02:00",
-    "location": "/System/Library/Java/Extensions/j3daudio.jar",
+    "location": "/System/Library/Java/Extensions/vecmath.jar",
     "javaRuntime": true
   },
   {
@@ -322,19 +400,6 @@
     "jarFileFingerprint": "63fbdd9c7e93573cc15ee487950217886be2aef6",
     "jarFileModificationDate": "2013-12-30T02:23:45+01:00",
     "location": "/System/Library/Java/Extensions/dns_sd.jar",
-    "javaRuntime": true
-  },
-  {
-    "symbolicName": "jre",
-    "version": {
-      "major": 1,
-      "minor": 0,
-      "micro": 0,
-      "qualifier": ""
-    },
-    "jarFileFingerprint": "005810d865dab9bd200ea485d0e44c18a329aa26",
-    "jarFileModificationDate": "2013-08-08T04:15:41+02:00",
-    "location": "/System/Library/Java/Extensions/vecmath.jar",
     "javaRuntime": true
   },
   {
@@ -429,6 +494,19 @@
     "javaRuntime": false
   },
   {
+    "symbolicName": "libScanpay",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "7c19142601ff9e109a3d8d1e1ca88751805a2edd",
+    "jarFileModificationDate": "2013-11-06T14:58:40+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/libScanpay.jar",
+    "javaRuntime": false
+  },
+  {
     "symbolicName": "android-support-v4",
     "version": {
       "major": -1,
@@ -478,6 +556,19 @@
     "jarFileFingerprint": "224c93f1824fa17b96db7250c2e5e2703d45e052",
     "jarFileModificationDate": "2013-11-06T15:15:40+01:00",
     "location": "/Users/Pierre-AlexandreVezinet/excusedemerde_framework/EDMFramework/libs/ksoap2-android-assembly-3.0.0-jar-with-dependencies.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "avalon-framework-4.2.0",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "629d6bb32996860c99d12cdfb5f1801250cdb597",
+    "jarFileModificationDate": "2013-11-06T14:58:40+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/avalon-framework-4.2.0.jar",
     "javaRuntime": false
   },
   {
@@ -572,6 +663,19 @@
     "javaRuntime": false
   },
   {
+    "symbolicName": "com.octo.android.robospice.robospice",
+    "version": {
+      "major": 1,
+      "minor": 4,
+      "micro": 7,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "3a178f16e17dda50073c38ada627af3e769fd7d2",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/robospice-1.4.7.jar",
+    "javaRuntime": false
+  },
+  {
     "symbolicName": "com.fasterxml.jackson.core.jackson-core",
     "version": {
       "major": 2,
@@ -608,6 +712,45 @@
     "jarFileFingerprint": "b2d9f83181635731db297fd7c59a9049c5ccbffd",
     "jarFileModificationDate": "2014-02-03T01:01:52+01:00",
     "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/appcompat/android-support-v7-appcompat/libs/android-support-v7-appcompat.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "android-support-v4",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "4a6be13368bb64c5a0b0460632d228a1a915f58f",
+    "jarFileModificationDate": "2013-11-06T14:54:58+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/android-support-v4.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "annotations",
+    "version": {
+      "major": -1,
+      "minor": -1,
+      "micro": -1,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "32398dcc04feffc61b691ab580822b5c0a2eb19a",
+    "jarFileModificationDate": "2014-01-24T00:12:59+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/android-sdk-macosx/tools/support/annotations.jar",
+    "javaRuntime": false
+  },
+  {
+    "symbolicName": "com.octo.android.robospice.robospice-spring-android",
+    "version": {
+      "major": 1,
+      "minor": 4,
+      "micro": 7,
+      "qualifier": "SNAPSHOT"
+    },
+    "jarFileFingerprint": "f9422f4b98fc60e184a55d36f377b4c58cf7e58b",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/Documents/workspace/mcasino-android/it.MCasinoApp/libs/robospice-spring-android-1.4.7-SNAPSHOT.jar",
     "javaRuntime": false
   },
   {
@@ -650,19 +793,6 @@
     "javaRuntime": true
   },
   {
-    "symbolicName": "org.apache.commons.lang3",
-    "version": {
-      "major": 3,
-      "minor": 1,
-      "micro": 0,
-      "qualifier": ""
-    },
-    "jarFileFingerprint": "905075e6c80f206bbe6cf1e809d2caa69f420c76",
-    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
-    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/commons-lang3-3.1.jar",
-    "javaRuntime": false
-  },
-  {
     "symbolicName": "jre",
     "version": {
       "major": 1,
@@ -674,5 +804,18 @@
     "jarFileModificationDate": "2013-12-30T02:23:43+01:00",
     "location": "/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext/dnsns.jar",
     "javaRuntime": true
+  },
+  {
+    "symbolicName": "org.apache.commons.lang3",
+    "version": {
+      "major": 3,
+      "minor": 1,
+      "micro": 0,
+      "qualifier": ""
+    },
+    "jarFileFingerprint": "905075e6c80f206bbe6cf1e809d2caa69f420c76",
+    "jarFileModificationDate": "2013-11-15T18:09:38+01:00",
+    "location": "/Users/Pierre-AlexandreVezinet/excusedemerde/edm/libs/commons-lang3-3.1.jar",
+    "javaRuntime": false
   }
 ]
