@@ -167,22 +167,17 @@ public class MesEdmsFragment extends EdmFragment {
 			public void onRequestSuccess(ListEdmsUser result) {
 				// TODO Auto-generated method stub
 			        PreferenceHelper.setListUserEdm(result.getListEdmsUser());
-			        int nbEdmUser = 0;
-			        
-			        if(result.getListEdmsUser() != null){
-			        	nbEdmUser  = result.getListEdmsUser().size();
-			        	Toast.makeText(getActivity(), "Mise ˆ jour de vos " + nbEdmUser + " EDMs ", Toast.LENGTH_LONG).show();
-			        	 adapter = new PostEdmAdapter(getActivity(), R.layout.mes_edms_textview_layout);
-						 listViewUserEdm.setAdapter(adapter);
-						 bindEdmDatas(PreferenceHelper.getListUserEdm());
-						 listViewUserEdm.setScrollContainer(true);
-						 ToolBox.setListViewScrollable(listViewUserEdm);
-			        }else{
-			        	displayDialogMessageRetourAccueil(R.string.title_alert_dialog_retour_accueil, R.string.message_pas_connecte_voir_edms, R.string.button_valid_retour_accueil);	
-			        }
-	
-				   
-			        EdmApplication.unShowWaitingDialog();	
+				    int nbEdmUser = result.getListEdmsUser().size();
+				    
+				    Toast.makeText(getActivity(), "Mise ˆ jour de vos " + nbEdmUser + " EDMs ", Toast.LENGTH_LONG).show();
+
+				    
+				    adapter = new PostEdmAdapter(getActivity(), R.layout.mes_edms_textview_layout);
+					listViewUserEdm.setAdapter(adapter);
+					bindEdmDatas(PreferenceHelper.getListUserEdm());
+					listViewUserEdm.setScrollContainer(true);
+					ToolBox.setListViewScrollable(listViewUserEdm);
+					EdmApplication.unShowWaitingDialog();
 				    
 				    
 			}

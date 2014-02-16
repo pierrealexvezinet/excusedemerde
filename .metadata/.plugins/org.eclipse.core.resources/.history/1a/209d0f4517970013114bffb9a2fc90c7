@@ -112,7 +112,7 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
   		  
   		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
   			.execute(loginUserRequest, loginUserRequest.getCacheKey(), 
-  					ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new LoginRequestListener() );
+  					DurationInMillis.NEVER, new LoginRequestListener() );
   		  
   	// ((EdmFragmentActivity) getActivity()).getSpiceManager().getFromCache(ListUsers.class, "LoginUserRequest"+ApplicationConstants.GET_USER, DurationInMillis.NEVER, null);
 	
@@ -202,23 +202,14 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
 			@Override
 			public void onRequestSuccess(ListEdmsUser result) {
 				// TODO Auto-generated method stub
-			        
-			        int nbEdmUser = 0;
-			        
-			        if(result.getListEdmsUser() != null){
-			        	   nbEdmUser = result.getListEdmsUser().size();
-			        	   PreferenceHelper.setListUserEdm(result.getListEdmsUser());
-			        }
+			        PreferenceHelper.setListUserEdm(result.getListEdmsUser());
+				    int nbEdmUser = result.getListEdmsUser().size();
 				    
 				    getActivity().finish();
 			     	intent = new Intent(getActivity(), AccueilActivity.class);
 					startActivity(intent);
 				    
-					 if(result.getListEdmsUser() != null){
 				    Toast.makeText(getActivity(), "Chargement de vos " + nbEdmUser + " EDMs ", Toast.LENGTH_LONG).show();
-					 }else{
-						 Toast.makeText(getActivity(), "Vous n'avez pas encore posté d'EDM ", Toast.LENGTH_LONG).show(); 
-					 }
 
 				
 				    

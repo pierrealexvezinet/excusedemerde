@@ -155,20 +155,20 @@ public class PosterEdmFragment extends EdmFragment implements OnClickListener{
 						
 						
 						
-						   //PreferenceHelper.getListAllEdm().add(0, edm);
-						   //PreferenceHelper.getListUserEdm().add(0, edmUserPosted);
+						   PreferenceHelper.getListAllEdm().add(0, edm);
+						   PreferenceHelper.getListUserEdm().add(0, edmUserPosted);
 						   
 						   PreferenceHelper.setCountEdmsUser(1);
 							Toast.makeText(getActivity(), "Edm postée avec succès ! ", Toast.LENGTH_LONG).show();
 							Log.d("tete ",
 									"Edm postée avec succès");
 							
-						
+							EdmApplication.unShowWaitingDialog();
 							
 							AccueilFragment.updateArrayAdapterEdm(PreferenceHelper.getListAllEdm(), AccueilFragment.adapter);
 							AccueilFragment.updateArrayAdapterEdmUser(PreferenceHelper.getListUserEdm(), AccueilFragment.adapter);
 						
-							EdmApplication.unShowWaitingDialog();
+							
 							intent = new Intent(getApplicationContext(), MesEdmsActivity.class);
 							
 							startActivity(intent);

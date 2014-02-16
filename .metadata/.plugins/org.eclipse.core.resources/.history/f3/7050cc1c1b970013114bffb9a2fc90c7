@@ -163,12 +163,12 @@ public class PosterEdmFragment extends EdmFragment implements OnClickListener{
 							Log.d("tete ",
 									"Edm postée avec succès");
 							
-						
+							EdmApplication.unShowWaitingDialog();
 							
 							AccueilFragment.updateArrayAdapterEdm(PreferenceHelper.getListAllEdm(), AccueilFragment.adapter);
 							AccueilFragment.updateArrayAdapterEdmUser(PreferenceHelper.getListUserEdm(), AccueilFragment.adapter);
 						
-							EdmApplication.unShowWaitingDialog();
+							
 							intent = new Intent(getApplicationContext(), MesEdmsActivity.class);
 							
 							startActivity(intent);

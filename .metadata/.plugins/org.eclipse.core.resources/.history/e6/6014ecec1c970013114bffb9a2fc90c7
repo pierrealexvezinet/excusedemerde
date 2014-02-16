@@ -99,7 +99,6 @@ public class PlusFragment extends EdmFragment implements OnClickListener {
 
 				EdmApplication.showWaitingDialog(getActivity());
 				userService.deconnectUser();
-				((EdmFragmentActivity) getActivity()).getSpiceManager().removeAllDataFromCache();
 				
 				editor = preferences.edit();
 				editor.putString("loginUser",null);

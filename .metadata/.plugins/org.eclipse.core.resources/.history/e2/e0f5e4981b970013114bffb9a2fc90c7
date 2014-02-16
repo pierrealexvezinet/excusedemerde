@@ -112,7 +112,7 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
   		  
   		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
   			.execute(loginUserRequest, loginUserRequest.getCacheKey(), 
-  					ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new LoginRequestListener() );
+  					DurationInMillis.NEVER, new LoginRequestListener() );
   		  
   	// ((EdmFragmentActivity) getActivity()).getSpiceManager().getFromCache(ListUsers.class, "LoginUserRequest"+ApplicationConstants.GET_USER, DurationInMillis.NEVER, null);
 	
@@ -202,12 +202,11 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
 			@Override
 			public void onRequestSuccess(ListEdmsUser result) {
 				// TODO Auto-generated method stub
-			        
+			        PreferenceHelper.setListUserEdm(result.getListEdmsUser());
 			        int nbEdmUser = 0;
 			        
 			        if(result.getListEdmsUser() != null){
 			        	   nbEdmUser = result.getListEdmsUser().size();
-			        	   PreferenceHelper.setListUserEdm(result.getListEdmsUser());
 			        }
 				    
 				    getActivity().finish();
