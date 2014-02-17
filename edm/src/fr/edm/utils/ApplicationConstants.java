@@ -62,7 +62,7 @@ public class ApplicationConstants {
 	// RESTRICTIONS ON EDM LIKER EDM
 	public final static String GET_NB_LIKE_BY_NUM_EDM = "GET_NB_LIKE_BY_NUM_EDM";
 	public final static String GET_NB_LIKES_BY_EDMs = "GET_NB_LIKES_BY_EDMs";
-	public final static String LIKER_UNE_EDM = "LIKER_UNE_EDM";
+	public final static String LIKER_EDM = "LIKER_EDM";
 
 	// EXPIRATION CACHE DATA FOR ROBOSPICE REQUEST
 	public static long STANDARD_EXPIRE_CACHE_DATA = 0;

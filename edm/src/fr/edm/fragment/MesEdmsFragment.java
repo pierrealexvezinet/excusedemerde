@@ -29,11 +29,11 @@ import fr.edm.webservice.EdmService;
 import fr.edm.EdmApplication;
 import fr.edm.activity.AccueilActivity;
 import fr.edm.activity.parent.EdmFragmentActivity;
-import fr.edm.adapter.PostEdmAdapter;
+import fr.edm.adapter.PostMyEdmAdapter;
 import fr.edm.model.Edm;
 import fr.edm.model.EdmUser;
 import fr.edm.model.ListEdmsUser;
-import fr.edm.model.PostEdm;
+import fr.edm.model.PostMyEdm;
 import fr.edm.parent.request.EdmSpiceRequest;
 import fr.edm.request.edm.UserEdmsRequest;
 import fr.edm.utils.ApplicationConstants;
@@ -47,7 +47,7 @@ public class MesEdmsFragment extends EdmFragment {
 	ListView listViewUserEdm;
 	UserEdmsRequest userEdmsRequest = null;
 	public static Edm edm = new Edm();
-	PostEdmAdapter adapter;
+	PostMyEdmAdapter adapter;
 	int cpt = 0;
 	Intent intent = null;
 	
@@ -106,18 +106,18 @@ public class MesEdmsFragment extends EdmFragment {
 	
 	
 	void bindEdmDatas(ArrayList<EdmUser> listEdm){
-		adapter = new PostEdmAdapter(getApplicationContext(),R.layout.mes_edms_textview_layout);
+		adapter = new PostMyEdmAdapter(getApplicationContext(),R.layout.mes_edms_textview_layout);
 		for(EdmUser edm : listEdm){
 		
-		PostEdm postEdm;
-		postEdm = new PostEdm();
-		postEdm.setPost(edm.getContenu());
-		postEdm.setDatePost(edm.getDatePost());
-		postEdm.setHeurePost(edm.getHeurePost());
-		postEdm.setAuteurPost(edm.getPseudo());
+		PostMyEdm postMyEdm;
+		postMyEdm = new PostMyEdm();
+		postMyEdm.setPost(edm.getContenu());
+		postMyEdm.setDatePost(edm.getDatePost());
+		postMyEdm.setHeurePost(edm.getHeurePost());
+		postMyEdm.setAuteurPost(edm.getPseudo());
 		
 	
-		adapter.add(postEdm);
+		adapter.add(postMyEdm);
 		}
 
 		listViewUserEdm.setAdapter(adapter);
@@ -172,7 +172,7 @@ public class MesEdmsFragment extends EdmFragment {
 			        if(result.getListEdmsUser() != null){
 			        	nbEdmUser  = result.getListEdmsUser().size();
 			        	Toast.makeText(getActivity(), "Mise ˆ jour de vos " + nbEdmUser + " EDMs ", Toast.LENGTH_LONG).show();
-			        	 adapter = new PostEdmAdapter(getActivity(), R.layout.mes_edms_textview_layout);
+			        	 adapter = new PostMyEdmAdapter(getActivity(), R.layout.mes_edms_textview_layout);
 						 listViewUserEdm.setAdapter(adapter);
 						 bindEdmDatas(PreferenceHelper.getListUserEdm());
 						 listViewUserEdm.setScrollContainer(true);

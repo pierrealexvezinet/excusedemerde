@@ -40,6 +40,7 @@
     <string name="poster_edm_bt">Poster une EDM</string>
     <string name="text_edm_to_post">Votre EDM se tape ici ...</string>
     <string name="text_edm_posted_with_succes">Votre EDM a été postée avec succès</string>
+    <string name="text_btn_valider_edm">Je valide cette EDM</string>
 
     <!-- EDM ACCOUNT -->
     <string name="lieu_residence_user">Lieu de résidence :</string>

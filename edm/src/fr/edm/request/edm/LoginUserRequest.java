@@ -1,8 +1,6 @@
 package fr.edm.request.edm;
 
-import fr.edm.model.ListEdms;
 import fr.edm.model.ListUsers;
-import fr.edm.model.User;
 import fr.edm.parent.request.EdmSpiceRequest;
 
 public class LoginUserRequest extends EdmSpiceRequest<ListUsers> {

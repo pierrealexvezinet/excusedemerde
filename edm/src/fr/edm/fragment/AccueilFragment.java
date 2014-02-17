@@ -57,7 +57,8 @@ public class AccueilFragment extends EdmFragment {
 	
 	Button btnToast;
 	String contenuEdm  = null;
-	TextView tvEdm;
+	Button btValiderEdm;
+	
 	UserService userServ = new UserService();
 	EdmService edmService = new EdmService(); 
 	StringBuilder sb = new StringBuilder();
@@ -72,6 +73,8 @@ public class AccueilFragment extends EdmFragment {
 	ListView listViewEdm;
 	public static PostEdmAdapter adapter = null;
 	int cpt = 0;
+	private static ArrayList<NameValuePair> restrictionLikerEdm = new ArrayList<NameValuePair>();
+	private static ArrayList<NameValuePair> restrictionNbLikeByNumEdm = new ArrayList<NameValuePair>();
 	
 
 	@SuppressWarnings("deprecation")
@@ -82,6 +85,9 @@ public class AccueilFragment extends EdmFragment {
 		// Toast.makeText(getApplicationContext(), "accueil User sauvegardé en preferences " + PreferenceHelper.getUserInPreferences().getPseudo(), Toast.LENGTH_LONG).show();
 		   View v = inflater.inflate(R.layout.accueil_fragment, container, false);
 		   listViewEdm = (ListView) v.findViewById(R.id.edm_listview);
+		   btValiderEdm = (Button) v.findViewById(R.id.bt_valider_edm);
+		  
+		   
 		   
 		   EdmApplication.showWaitingDialog(getActivity());
 		   
@@ -112,6 +118,36 @@ public class AccueilFragment extends EdmFragment {
 			postEdm.setDatePost(edm.getDatePost());
 			postEdm.setHeurePost(edm.getHeurePost());
 			postEdm.setAuteurPost(edm.getPseudo());
+			
+			
+		     /**final OnClickListener likeEdm = new View.OnClickListener() {
+			    public void onClick(View v) {
+			    	
+			    	if(v == btValiderEdm){
+			       
+			        	
+			        	//GET_NB_LIKE_BY_NUM_EDM
+			        
+			        	restrictionNbLikeByNumEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_REQUEST, ApplicationConstants.GET_NB_LIKE_BY_NUM_EDM));
+			        	restrictionNbLikeByNumEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_EDM, ));
+			        	
+			        	//nbVote , auteurVote,auteurEdm, numEdm, keyVote
+			        	restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_REQUEST, ApplicationConstants.LIKER_EDM));
+						restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.PSEUDO, edm.getPseudo() ));
+						restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.VICTIME, edm.getVictime()));
+						restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.CATEGORIE,edm.getCategorie()));
+						restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.DATE_POST,edm.getDatePost()));
+			        
+			        	
+			        	Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show();
+			        }
+						
+			      
+			    	
+			    }
+			};
+			
+			 btValiderEdm.setOnClickListener(likeEdm);**/
 			
 		
 			adapter.add(postEdm);
@@ -164,7 +200,7 @@ public class AccueilFragment extends EdmFragment {
 		        	mAdapter.insert(postEdm, mAdapter.getCount());
 		        }
 		    }
-
+		 
 		    mAdapter.notifyDataSetChanged();
 
 		}
@@ -199,5 +235,8 @@ public class AccueilFragment extends EdmFragment {
 			
 		}
     }
+
+
+		
 	
 }

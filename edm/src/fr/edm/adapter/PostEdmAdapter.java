@@ -54,9 +54,9 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 
 		
 			layoutDatas.postEdm.setText(entity.getPost());
-			layoutDatas.datePost.setText(entity.getDatePost());
-			layoutDatas.heurePost.setText(entity.getHeurePost());
-			layoutDatas.auteur.setText(entity.getAuteurPost());
+			layoutDatas.datePost.setText("Posté le " + entity.getDatePost());
+			layoutDatas.heurePost.setText(" à " + entity.getHeurePost() + " |");
+			layoutDatas.auteur.setText(entity.getAuteurPost() + " | ");
 
 		
 
