@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/edm_blue_dark_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/rlt_poster_edm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginTop="120dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/llt_poster_edm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_pseudo_poster_edm"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/white"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:hint="@string/pseudo_edm"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:paddingLeft="6dip"
+                android:text="@string/pseudo_edm"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/edm_grey_solid"
+                android:textSize="16sp" />
+
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llt_spinner_poster_edm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical" >
+            
+            <Spinner
+                android:id="@+id/sp_poster_edm"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="15dp"
+                />
+
+            <EditText
+                android:id="@+id/et_poster_edm"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:gravity="top"
+                android:hint="@string/text_edm_to_post"
+                android:minHeight="?android:attr/listPreferredItemHeight"
+                android:paddingLeft="6dip"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="#000000"
+                android:textSize="15sp" >
+
+                <requestFocus />
+            </EditText>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_poster_edm"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#F09F38"
+            android:minHeight="?android:attr/listPreferredItemHeight"
+            android:paddingLeft="6dip"
+            android:text="@string/poster_edm_bt"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+</LinearLayout>

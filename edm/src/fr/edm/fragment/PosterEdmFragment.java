@@ -146,8 +146,6 @@ public class PosterEdmFragment extends EdmFragment implements OnClickListener{
 						@Override
 						public void onSuccess(JSONObject jsonObj) {
 							
-							
-							
 						ArrayList<Edm> aledm = new ArrayList<Edm>();
 						aledm =  PreferenceHelper.getListAllEdm();
 						ArrayList<EdmUser> aledmUser = new ArrayList<EdmUser>();

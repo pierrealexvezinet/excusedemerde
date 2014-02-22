@@ -1,7 +1,7 @@
 package fr.edm.model;
 
 public class PostEdm {
-	
+	String numEdm;
 	String post;
 	String auteurPost, datePost, HeurePost;
 	
@@ -10,13 +10,23 @@ public class PostEdm {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PostEdm(String post, String auteurPost, String datePost,
+	public PostEdm(String numEdm,String post, String auteurPost, String datePost,
 			String heurePost) {
 		super();
+		this.numEdm = numEdm;
 		this.post = post;
 		this.auteurPost = auteurPost;
 		this.datePost = datePost;
 		HeurePost = heurePost;
+	}
+	
+
+	public String getNumEdm() {
+		return numEdm;
+	}
+
+	public void setNumEdm(String numEdm) {
+		this.numEdm = numEdm;
 	}
 
 	public String getPost() {

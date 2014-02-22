@@ -1,0 +1,120 @@
+package fr.edm.adapter;
+
+import java.util.ArrayList;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import fr.activity.edm.R;
+import fr.edm.json.JsonHelper;
+import fr.edm.model.PostEdm;
+import fr.edm.utils.ApplicationConstants;
+import android.content.Context;
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
+
+public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
+
+	private LayoutInflater mInflater = null;
+	public PostEdm storage = new PostEdm();
+	StorageEdmRelativeLayoutDatas layoutDatas;
+	ArrayList<PostEdm> currentListPost = new ArrayList<PostEdm>();
+	int resourceTV =0;
+	 PostEdm entity;
+	
+	private static ArrayList<NameValuePair> restrictionGetNbLikeEdmByNumEdm = new ArrayList<NameValuePair>();
+	private static ArrayList<NameValuePair> restrictionLikerEdm = new ArrayList<NameValuePair>();
+	
+
+
+	public PostEdmAdapter(Context mContext, int resourceTV) {
+
+		super(mContext, 0);
+		mInflater = (LayoutInflater) mContext
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		this.resourceTV = resourceTV;
+		
+		
+		
+		
+
+	}
+
+	@Override
+	final public View getView(final int position, View convertView,
+			ViewGroup parent) {
+        
+		
+	    layoutDatas = new StorageEdmRelativeLayoutDatas();
+		View row = convertView;
+	
+
+		if (row == null) {
+			row = mInflater
+					.inflate(this.resourceTV, parent, false);
+			layoutDatas.postEdm = (TextView) row.findViewById(R.id.tv_edm_post);
+			layoutDatas.datePost = (TextView) row.findViewById(R.id.tv_edm_post_date);
+			layoutDatas.heurePost = (TextView) row.findViewById(R.id.tv_edm_post_hour);
+			layoutDatas.auteur = (TextView) row.findViewById(R.id.tv_edm_post_auteur);
+			layoutDatas.btValiderEdm = (Button) row.findViewById(R.id.bt_valider_edm);
+		
+
+			row.setTag(layoutDatas);
+	
+		} else {
+			layoutDatas = (StorageEdmRelativeLayoutDatas) row.getTag();	
+		}
+
+		
+		
+		    entity = getItem(position);
+			layoutDatas.postEdm.setText(entity.getPost());
+			layoutDatas.datePost.setText("Posté le " + entity.getDatePost());
+			layoutDatas.heurePost.setText(" à " + entity.getHeurePost() + " |");
+			layoutDatas.auteur.setText(entity.getAuteurPost() + " | ");
+			
+			
+			layoutDatas.btValiderEdm.setClickable(true);
+			layoutDatas.btValiderEdm.setOnClickListener(new OnClickListener(){
+
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					
+					//nbVote , auteurVote,auteurEdm, numEdm, keyVote
+					//restrictionGetNbLikeEdmByNumEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_EDM,layoutDatas.));
+				
+					//JsonHelper.TYPE_JSON_RESULT = "object";
+					int myPosition = position;
+				
+					
+					Toast.makeText(getContext(), "click " + myPosition + " " + getItem(myPosition).getHeurePost().toString(), Toast.LENGTH_SHORT).show();
+					myPosition = position;
+				}
+				
+			});
+			
+
+		return row;
+	}
+	
+	
+	
+
+	class StorageEdmRelativeLayoutDatas {
+
+		TextView postEdm, datePost, heurePost, auteur;
+		Button btValiderEdm;
+
+	}
+
+}

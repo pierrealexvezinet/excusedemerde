@@ -22,6 +22,8 @@ import fr.edm.EdmApplication;
 import fr.edm.activity.parent.EdmFragmentActivity;
 import fr.edm.adapter.PostEdmAdapter;
 import fr.edm.fragment.parent.EdmFragment;
+import fr.edm.json.JsonHelper;
+import fr.edm.json.JsonHelper.JsonListener;
 import fr.edm.model.Edm;
 import fr.edm.model.EdmUser;
 import fr.edm.model.ListEdms;
@@ -40,6 +42,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -75,7 +79,9 @@ public class AccueilFragment extends EdmFragment {
 	int cpt = 0;
 	private static ArrayList<NameValuePair> restrictionLikerEdm = new ArrayList<NameValuePair>();
 	private static ArrayList<NameValuePair> restrictionNbLikeByNumEdm = new ArrayList<NameValuePair>();
-	
+	private static ArrayList<NameValuePair> restrictionGetNbLikeEdmByNumEdm = new ArrayList<NameValuePair>();
+	PostEdm postEdm;
+	int nbLikesForCurrentEdm;
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -83,19 +89,18 @@ public class AccueilFragment extends EdmFragment {
 	            Bundle savedInstanceState) {
 	
 		// Toast.makeText(getApplicationContext(), "accueil User sauvegardé en preferences " + PreferenceHelper.getUserInPreferences().getPseudo(), Toast.LENGTH_LONG).show();
-		   View v = inflater.inflate(R.layout.accueil_fragment, container, false);
+		  final View v = inflater.inflate(R.layout.accueil_fragment, container, false);
 		   listViewEdm = (ListView) v.findViewById(R.id.edm_listview);
+		   
+		 
 		   btValiderEdm = (Button) v.findViewById(R.id.bt_valider_edm);
 		  
-		   
 		   
 		   EdmApplication.showWaitingDialog(getActivity());
 		   
 		   /*spice request for all edm in accueil activity*/
 		  allEdmRequest = new AllEdmsRequest(ApplicationConstants.GET_ALL_EDMs);
-		
 	
-		  
 		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
 			.execute(allEdmRequest, allEdmRequest.getCacheKey(), 
 					ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new AccueilRequestListener() );
@@ -103,6 +108,10 @@ public class AccueilFragment extends EdmFragment {
 		  
 			    listViewEdm.setScrollContainer(true);
 			    ToolBox.setListViewScrollable(listViewEdm);
+			    
+			    
+			  
+			    
 			  
 		   
 	        return v;
@@ -111,49 +120,67 @@ public class AccueilFragment extends EdmFragment {
 		public void bindEdmDatas(ArrayList<Edm>  listEdm){
 			adapter = new PostEdmAdapter(getApplicationContext(), R.layout.edm_textview_layout);
 			for(Edm edm : listEdm){
-			
-			PostEdm postEdm;
+		
 			postEdm = new PostEdm();
+			postEdm.setNumEdm(edm.getNumEdm());
 			postEdm.setPost(edm.getContenu());
 			postEdm.setDatePost(edm.getDatePost());
 			postEdm.setHeurePost(edm.getHeurePost());
 			postEdm.setAuteurPost(edm.getPseudo());
 			
 			
-		     /**final OnClickListener likeEdm = new View.OnClickListener() {
-			    public void onClick(View v) {
-			    	
-			    	if(v == btValiderEdm){
-			       
-			        	
-			        	//GET_NB_LIKE_BY_NUM_EDM
-			        
-			        	restrictionNbLikeByNumEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_REQUEST, ApplicationConstants.GET_NB_LIKE_BY_NUM_EDM));
-			        	restrictionNbLikeByNumEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_EDM, ));
-			        	
-			        	//nbVote , auteurVote,auteurEdm, numEdm, keyVote
-			        	restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_REQUEST, ApplicationConstants.LIKER_EDM));
-						restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.PSEUDO, edm.getPseudo() ));
-						restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.VICTIME, edm.getVictime()));
-						restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.CATEGORIE,edm.getCategorie()));
-						restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.DATE_POST,edm.getDatePost()));
-			        
-			        	
-			        	Toast.makeText(getActivity(), "click", Toast.LENGTH_SHORT).show();
-			        }
-						
-			      
-			    	
-			    }
-			};
+			  restrictionGetNbLikeEdmByNumEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_EDM,edm.getNumEdm()));
+				JsonHelper.TYPE_JSON_RESULT = "object";
+				
+				edmService.getNbLikeByNumEdm(getActivity(), new JsonHelper("post", ApplicationConstants.URI_WS, ApplicationConstants.CREATE_EDM, restrictionGetNbLikeEdmByNumEdm,
+						new JsonListener(){
+
+							@Override
+							public void onSuccess(JSONObject jsonObj) {
+								// TODO Auto-generated method stub
+								
+								
+								JSONArray jsonArray = null;
+								try {
+								   jsonArray = jsonObj.getJSONArray("list");
+								
+										JSONObject map = jsonArray.getJSONObject(0);
+										
+										nbLikesForCurrentEdm = map.getInt("NB_VOTES_BY_EDM");
+										
+								}catch (JSONException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+									Toast.makeText(getActivity(), "Recuperation nb like by edm echouée" , Toast.LENGTH_LONG).show();
+									Log.d("dede",
+											"error on call json services for getNbLikeByNumEdmByContext :"
+													+ e.getMessage());
+									
+								}
+								
+								
+							}
+
+							@Override
+							public void onFailed(String msg) {
+								// TODO Auto-generated method stub
+								
+							}
+					
+				}));
+				
 			
-			 btValiderEdm.setOnClickListener(likeEdm);**/
-			
-		
+	
 			adapter.add(postEdm);
+
 			}
 	
 			listViewEdm.setAdapter(adapter);
+
+			int count_adapter_elements =  adapter.getCount();
+			Log.d("edm", "count adapter elements : " + count_adapter_elements);
+			
+			
 		} 
 		
 		public static void updateArrayAdapterEdm(ArrayList<Edm> itemsArrayList, ArrayAdapter<PostEdm> mAdapter ) {

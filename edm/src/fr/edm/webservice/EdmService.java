@@ -4,6 +4,7 @@ import fr.edm.json.JsonHelper;
 import fr.edm.ui.EdmWebServiceInterface;
 import fr.edm.utils.ApplicationConstants;
 import android.app.Activity;
+import android.content.Context;
 
 public class EdmService implements EdmWebServiceInterface {
 
@@ -52,6 +53,18 @@ public class EdmService implements EdmWebServiceInterface {
 
 	@Override
 	public void likerEdm(Activity activity, JsonHelper json) {
+		json.execute(ApplicationConstants.URI_WS);
+		
+	}
+
+	@Override
+	public void getNbLikeByNumEdm(Activity activity, JsonHelper json) {
+		json.execute(ApplicationConstants.URI_WS);
+		
+	}
+
+	@Override
+	public void getNbLikeByNumEdmByContext(Context context, JsonHelper json) {
 		json.execute(ApplicationConstants.URI_WS);
 		
 	}
