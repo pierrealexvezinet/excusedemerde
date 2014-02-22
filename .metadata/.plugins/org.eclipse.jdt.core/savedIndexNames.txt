@@ -3,7 +3,6 @@ INDEX VERSION 1.126+/Users/Pierre-AlexandreVezinet/excusedemerde/.metadata/.plug
 3709783164.index
 2628593975.index
 1742305405.index
-2778454777.index
 3246756873.index
 3363506263.index
 4051332987.index
