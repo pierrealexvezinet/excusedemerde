@@ -17,6 +17,7 @@ public class Edm {
 	private String datePost;
 	private String heurePost;
 	private String pseudo;
+	private String nbLikeForEdm;
 
 	public Edm() {
 		super();
@@ -24,7 +25,7 @@ public class Edm {
 	}
 
 	public Edm(String numEdm, String victime, String categorie, String contenu,
-			String datePost, String heurePost, String pseudo) {
+			String datePost, String heurePost, String pseudo, String nbLikeForEdm) {
 		super();
 		this.numEdm = numEdm;
 		this.victime = victime;
@@ -33,6 +34,7 @@ public class Edm {
 		this.datePost = datePost;
 		this.heurePost = heurePost;
 		this.pseudo = pseudo;
+		this.nbLikeForEdm = nbLikeForEdm;
 	}
 	@JsonProperty(value = "numEdm")
 	public String getNumEdm() {
@@ -90,5 +92,15 @@ public class Edm {
 	public void setPseudo(String pseudo) {
 		this.pseudo = pseudo;
 	}
+
+	public String getNbLikeForEdm() {
+		return nbLikeForEdm;
+	}
+
+	public void setNbLikeForEdm(String nbLikeForEdm) {
+		this.nbLikeForEdm = nbLikeForEdm;
+	}
+	
+	
 
 }

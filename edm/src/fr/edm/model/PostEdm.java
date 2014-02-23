@@ -3,7 +3,7 @@ package fr.edm.model;
 public class PostEdm {
 	String numEdm;
 	String post;
-	String auteurPost, datePost, HeurePost;
+	String auteurPost, datePost, HeurePost, nbLikesEdm;
 	
 	public PostEdm() {
 		super();
@@ -11,13 +11,14 @@ public class PostEdm {
 	}
 
 	public PostEdm(String numEdm,String post, String auteurPost, String datePost,
-			String heurePost) {
+			String heurePost, String nbLikesEdm) {
 		super();
 		this.numEdm = numEdm;
 		this.post = post;
 		this.auteurPost = auteurPost;
 		this.datePost = datePost;
-		HeurePost = heurePost;
+		this.HeurePost = heurePost;
+		this.nbLikesEdm = nbLikesEdm;
 	}
 	
 
@@ -59,6 +60,14 @@ public class PostEdm {
 
 	public void setHeurePost(String heurePost) {
 		HeurePost = heurePost;
+	}
+
+	public String getNbLikesEdm() {
+		return nbLikesEdm;
+	}
+
+	public void setNbLikesEdm(String nbLikesEdm) {
+		this.nbLikesEdm = nbLikesEdm;
 	}
 	
 	

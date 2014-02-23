@@ -250,7 +250,7 @@ public class PreferenceHelper {
 	/**************************************** EDM PREFERENCES ********************************************************/
 
 	public static String numEdm, victime, categorie, contenu, datePost,
-			heurePost, pseudo_foreignKey_Edm;
+			heurePost, nbLikeForEdm, pseudo_foreignKey_Edm;
 	public static int countEdmsUser = 0;
 	public static Edm edm = null;
 	public static ArrayList<Edm> listEdm = null;
@@ -271,6 +271,7 @@ public class PreferenceHelper {
 		contenu = edm.getContenu();
 		datePost = edm.getDatePost();
 		heurePost = edm.getHeurePost();
+		nbLikeForEdm = edm.getNbLikeForEdm();
 		pseudo_foreignKey_Edm = edm.getPseudo();
 		// listEdm.add(edm);
 	}
@@ -342,6 +343,14 @@ public class PreferenceHelper {
 
 	public static void setHeurePost(String heurePost) {
 		PreferenceHelper.heurePost = heurePost;
+	}
+
+	public static String getNbLikeForEdm() {
+		return nbLikeForEdm;
+	}
+
+	public static void setNbLikeForEdm(String nbLikeForEdm) {
+		PreferenceHelper.nbLikeForEdm = nbLikeForEdm;
 	}
 
 	public static String getPseudo_foreignKey_Edm() {

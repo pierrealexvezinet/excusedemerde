@@ -127,50 +127,7 @@ public class AccueilFragment extends EdmFragment {
 			postEdm.setDatePost(edm.getDatePost());
 			postEdm.setHeurePost(edm.getHeurePost());
 			postEdm.setAuteurPost(edm.getPseudo());
-			
-			
-			  restrictionGetNbLikeEdmByNumEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_EDM,edm.getNumEdm()));
-				JsonHelper.TYPE_JSON_RESULT = "object";
-				
-				edmService.getNbLikeByNumEdm(getActivity(), new JsonHelper("post", ApplicationConstants.URI_WS, ApplicationConstants.CREATE_EDM, restrictionGetNbLikeEdmByNumEdm,
-						new JsonListener(){
-
-							@Override
-							public void onSuccess(JSONObject jsonObj) {
-								// TODO Auto-generated method stub
-								
-								
-								JSONArray jsonArray = null;
-								try {
-								   jsonArray = jsonObj.getJSONArray("list");
-								
-										JSONObject map = jsonArray.getJSONObject(0);
-										
-										nbLikesForCurrentEdm = map.getInt("NB_VOTES_BY_EDM");
-										
-								}catch (JSONException e) {
-									// TODO Auto-generated catch block
-									e.printStackTrace();
-									Toast.makeText(getActivity(), "Recuperation nb like by edm echouée" , Toast.LENGTH_LONG).show();
-									Log.d("dede",
-											"error on call json services for getNbLikeByNumEdmByContext :"
-													+ e.getMessage());
-									
-								}
-								
-								
-							}
-
-							@Override
-							public void onFailed(String msg) {
-								// TODO Auto-generated method stub
-								
-							}
-					
-				}));
-				
-			
-	
+		    postEdm.setNbLikesEdm(edm.getNbLikeForEdm());
 			adapter.add(postEdm);
 
 			}
@@ -198,6 +155,7 @@ public class AccueilFragment extends EdmFragment {
 		        	postEdm.setDatePost(edm.getDatePost());
 		        	postEdm.setHeurePost(edm.getHeurePost());
 		        	postEdm.setPost(edm.getContenu());
+		        	postEdm.setNbLikesEdm(edm.getNbLikeForEdm());
 		        
 		        	mAdapter.insert(postEdm, mAdapter.getCount());
 		        }
@@ -223,6 +181,7 @@ public class AccueilFragment extends EdmFragment {
 		        	postEdm.setDatePost(edmUser.getDatePost());
 		        	postEdm.setHeurePost(edmUser.getHeurePost());
 		        	postEdm.setPost(edmUser.getContenu());
+		        	
 		        
 		        	mAdapter.insert(postEdm, mAdapter.getCount());
 		        }

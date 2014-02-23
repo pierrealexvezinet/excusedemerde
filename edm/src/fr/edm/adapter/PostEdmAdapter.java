@@ -71,7 +71,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 			layoutDatas.heurePost = (TextView) row.findViewById(R.id.tv_edm_post_hour);
 			layoutDatas.auteur = (TextView) row.findViewById(R.id.tv_edm_post_auteur);
 			layoutDatas.btValiderEdm = (Button) row.findViewById(R.id.bt_valider_edm);
-		
+			layoutDatas.nbLikeByEdm = (TextView) row.findViewById(R.id.tv_edm_nb_like);
 
 			row.setTag(layoutDatas);
 	
@@ -86,7 +86,8 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 			layoutDatas.datePost.setText("Posté le " + entity.getDatePost());
 			layoutDatas.heurePost.setText(" à " + entity.getHeurePost() + " |");
 			layoutDatas.auteur.setText(entity.getAuteurPost() + " | ");
-			
+			layoutDatas.btValiderEdm.setText("Je valide | ");
+			layoutDatas.nbLikeByEdm.setText(entity.getNbLikesEdm() + " vote(s)");
 			
 			layoutDatas.btValiderEdm.setClickable(true);
 			layoutDatas.btValiderEdm.setOnClickListener(new OnClickListener(){
@@ -98,7 +99,11 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 					
 					//nbVote , auteurVote,auteurEdm, numEdm, keyVote
 					int myPosition = position;
-				    Toast.makeText(getContext(), "click " + myPosition + " " + getItem(myPosition).getHeurePost().toString() + "  numEdm " + getItem(myPosition).getNumEdm() , Toast.LENGTH_SHORT).show();
+					int nbLikeEdmToIncrement = Integer.valueOf(getItem(myPosition).getNbLikesEdm());
+					nbLikeEdmToIncrement++;
+					layoutDatas.nbLikeByEdm.setText(String.valueOf(nbLikeEdmToIncrement) + " vote(s)");
+					layoutDatas.nbLikeByEdm.refreshDrawableState();
+				    Toast.makeText(getContext(), "click " + myPosition + " nbLikeEdmToIncrement :  " + nbLikeEdmToIncrement + " heurepost " + getItem(myPosition).getHeurePost().toString() + "  numEdm " + getItem(myPosition).getNumEdm() , Toast.LENGTH_SHORT).show();
 					myPosition = position;
 				}
 				
@@ -113,7 +118,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 
 	class StorageEdmRelativeLayoutDatas {
 
-		TextView postEdm, datePost, heurePost, auteur;
+		TextView postEdm, datePost, heurePost, auteur, nbLikeByEdm;
 		Button btValiderEdm;
 
 	}
