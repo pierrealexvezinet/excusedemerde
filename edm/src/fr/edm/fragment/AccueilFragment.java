@@ -91,11 +91,7 @@ public class AccueilFragment extends EdmFragment {
 		// Toast.makeText(getApplicationContext(), "accueil User sauvegardé en preferences " + PreferenceHelper.getUserInPreferences().getPseudo(), Toast.LENGTH_LONG).show();
 		  final View v = inflater.inflate(R.layout.accueil_fragment, container, false);
 		   listViewEdm = (ListView) v.findViewById(R.id.edm_listview);
-		   
-		 
-		   btValiderEdm = (Button) v.findViewById(R.id.bt_valider_edm);
-		  
-		   
+	
 		   EdmApplication.showWaitingDialog(getActivity());
 		   
 		   /*spice request for all edm in accueil activity*/
@@ -108,11 +104,8 @@ public class AccueilFragment extends EdmFragment {
 		  
 			    listViewEdm.setScrollContainer(true);
 			    ToolBox.setListViewScrollable(listViewEdm);
-			    
-			    
-			  
-			    
-			  
+
+			  listViewEdm.refreshDrawableState();
 		   
 	        return v;
 	    }
@@ -128,6 +121,9 @@ public class AccueilFragment extends EdmFragment {
 			postEdm.setHeurePost(edm.getHeurePost());
 			postEdm.setAuteurPost(edm.getPseudo());
 		    postEdm.setNbLikesEdm(edm.getNbLikeForEdm());
+		   
+		    
+		    
 			adapter.add(postEdm);
 
 			}
@@ -223,6 +219,12 @@ public class AccueilFragment extends EdmFragment {
     }
 
 
-		
+		@Override
+		public void onResume() {
+		    super.onResume();
+
+		    listViewEdm.refreshDrawableState();
+
+		}
 	
 }

@@ -17,6 +17,7 @@ public interface EdmWebServiceInterface {
 	public void createEdm(Activity activity, JsonHelper json);
 	public void deleteEdm(Activity activity, JsonHelper json);
 	public void likerEdm(Activity activity, JsonHelper json);
+	public void likerEdmByContext(Context context, JsonHelper json);
 	
 
 }

@@ -1,0 +1,190 @@
+package fr.edm.json;
+
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import android.os.AsyncTask;
+import android.util.Log;
+
+public class JsonHelper extends AsyncTask<String, Void, JSONObject> {
+	
+	/**
+	 * @author pvezinet
+	 *
+	 */
+
+	JsonListener listener;
+	String method;
+	String requetNum;
+	ArrayList<NameValuePair> listCriteresRestriction;
+	String url;
+    public static String TYPE_JSON_RESULT = "list";
+
+	public JsonHelper(String method, String url, String requeteNum, ArrayList<NameValuePair> listCriteresRestriction, JsonListener listener) {
+		this.listener = listener;
+		this.method = method;
+		this.listCriteresRestriction = listCriteresRestriction;
+		this.requetNum = requeteNum;
+		this.url = url;
+	}
+
+	public JSONObject postJson(String url) {
+
+		InputStream is = null;
+		String result = "";
+		JSONObject jsonObject = null;
+		JSONArray jsonArray = null;
+
+
+		// HTTP
+		try {
+			HttpClient httpclient = new DefaultHttpClient(); // for port 80
+			HttpPost httppost = new HttpPost(url);
+			
+			if(listCriteresRestriction.size() > 0){
+				httppost.setEntity(new UrlEncodedFormEntity(listCriteresRestriction));
+			}
+			
+			HttpResponse response = httpclient.execute(httppost);
+			HttpEntity entity = response.getEntity();
+			is = entity.getContent();
+		} catch (Exception e) {
+			Log.d("dede", "exeption levee in JsonHelper (message) : " + e.getMessage() + " (cause) : " + e.getCause());
+			return null;
+		}
+
+		// Read response to string
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(is, "utf-8"), 8);
+			
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+			is.close();
+			result = sb.toString();
+			
+		} catch (Exception e) {
+			Log.d("dede",e.getMessage());
+			return null;
+		}
+
+		// Convert string to object
+		try {
+			if(TYPE_JSON_RESULT.equals("list")){
+				    jsonArray = new JSONArray(result);
+					jsonObject.put("list", jsonArray);
+			}else if(TYPE_JSON_RESULT.equals("object")){
+				 jsonObject = new JSONObject(result);
+					jsonObject.put("list", jsonObject);
+			}
+			
+			
+		} catch (JSONException e) {
+			Log.d("edm", "exeption levee in JsonHelper (message) : " + e.getMessage() + " (cause) : " + e.getCause());
+			return null;
+		}
+
+		return jsonObject;
+
+	}
+	
+
+
+	public JSONObject getJson(String url) {
+
+		InputStream is = null;
+		String result = "";
+		JSONObject jsonObject = null;
+		JSONArray jsonArray = null;
+
+		// HTTP
+		try {
+			HttpClient httpclient = new DefaultHttpClient(); // for port 80
+
+			HttpGet httpget = new HttpGet(url);
+			HttpResponse response = httpclient.execute(httpget);
+			HttpEntity entity = response.getEntity();
+			is = entity.getContent();
+		} catch (Exception e) {
+			Log.d("dede", "exeption GET levee in JsonHelper (message) : " + e.getMessage() + " (cause) : " + e.getCause());
+			return null;
+		}
+
+		// Read response to string
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(is, "utf-8"), 8);
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+			is.close();
+			result = sb.toString();
+		} catch (Exception e) {
+			Log.d("dede", "exeption GET levee in JsonHelper (message) : " + e.getMessage() + " (cause) : " + e.getCause());
+			return null;
+		}
+
+		// Convert string to object
+		try {
+			//jsonArray = new JSONArray(result);
+			jsonObject = new JSONObject(result);
+			jsonObject.put("list", jsonObject);
+		} catch (JSONException e) {
+			Log.d("dede",e.getMessage());
+			return null;
+		}
+
+		return jsonObject;
+
+	}
+
+	@Override
+	protected JSONObject doInBackground(String... params) {
+		String url = params[0];
+
+		if(method.equals("get")){
+			return getJson(url);
+		}else{ 
+			return postJson(url);
+		}
+		
+		
+	}
+
+
+	@Override
+	protected void onPostExecute(JSONObject result) {
+		if (result == null) {
+			listener.onFailed("");
+		} else {
+			listener.onSuccess(result);
+		}
+	}
+
+	/***
+	 * Listener to handle json WS response
+	 * 
+	 */
+	public interface JsonListener {
+		void onSuccess(JSONObject jsonObj);
+
+		void onFailed(String msg);
+	}
+}

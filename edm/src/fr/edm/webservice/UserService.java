@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import fr.edm.activity.parent.EdmFragmentActivity;
 import fr.edm.json.JsonHelper;
+import fr.edm.model.User;
 import fr.edm.ui.UserWebServiceInterface;
 import fr.edm.utils.ApplicationConstants;
 import fr.edm.utils.PreferenceHelper;

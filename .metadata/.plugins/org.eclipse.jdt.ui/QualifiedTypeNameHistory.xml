@@ -23,4 +23,6 @@
 <fullyQualifiedTypeName name="fr.edm.utils.ApplicationConstants"/>
 <fullyQualifiedTypeName name="fr.edm.request.edm.LoginUserRequest"/>
 <fullyQualifiedTypeName name="fr.edm.model.ListUsers"/>
+<fullyQualifiedTypeName name="fr.edm.activity.parent.EdmFragmentActivity"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
 </qualifiedTypeNameHistroy>

@@ -15,6 +15,7 @@ public class ApplicationConstants {
 
 	// WEB SERVICES URI
 	public final static String URI_WS = "http://www.excuse-de-merde.fr/ws/EdmWebServices.php";
+	// PROPERTIES
 	public final static String NUM_REQUEST = "NUM_REQUEST";
 	public static final String PSEUDO = "pseudo";
 	public static final String AUTEUR_EDM = "auteurEdm";
@@ -34,6 +35,10 @@ public class ApplicationConstants {
 	public static final String HEURE_POST = "heurePost";
 	public static final String DATE_POST = "datePost";
 	public static final String SAISIR_EDM = "saisirEdm";
+	public static final String NB_VOTE = "nbVote";
+	public static final String AUTEUR_VOTE = "auteurVote";
+	public static final String KEY_VOTE = "keyVote";
+
 
 	// RESTRICTIONS ON USER REQUEST
 	public final static String LOGIN_USER = "LOGIN_USER";

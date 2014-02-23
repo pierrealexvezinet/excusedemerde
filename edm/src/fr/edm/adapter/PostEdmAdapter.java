@@ -9,14 +9,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import fr.activity.edm.R;
+import fr.edm.EdmApplication;
+import fr.edm.activity.MesEdmsActivity;
 import fr.edm.activity.parent.EdmFragmentActivity;
+import fr.edm.fragment.AccueilFragment;
 import fr.edm.json.JsonHelper;
 import fr.edm.json.JsonHelper.JsonListener;
+import fr.edm.model.Edm;
+import fr.edm.model.EdmUser;
 import fr.edm.model.PostEdm;
 import fr.edm.model.User;
 import fr.edm.utils.ApplicationConstants;
+import fr.edm.utils.PreferenceHelper;
 import fr.edm.webservice.EdmService;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,10 +47,10 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 	PostEdm entity;
 	EdmService edmService = new EdmService(); 
 	int nbLikesForCurrentEdm;
+	int nbLikeEdmToIncrement;
 	
-	private static ArrayList<NameValuePair> restrictionGetNbLikeEdmByNumEdm = new ArrayList<NameValuePair>();
 	private static ArrayList<NameValuePair> restrictionLikerEdm = new ArrayList<NameValuePair>();
-	
+
 
 
 	public PostEdmAdapter(Context mContext, int resourceTV) {
@@ -86,29 +93,78 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 			layoutDatas.datePost.setText("Posté le " + entity.getDatePost());
 			layoutDatas.heurePost.setText(" à " + entity.getHeurePost() + " |");
 			layoutDatas.auteur.setText(entity.getAuteurPost() + " | ");
-			layoutDatas.btValiderEdm.setText("Je valide | ");
+			
 			layoutDatas.nbLikeByEdm.setText(entity.getNbLikesEdm() + " vote(s)");
 			
-			layoutDatas.btValiderEdm.setClickable(true);
-			layoutDatas.btValiderEdm.setOnClickListener(new OnClickListener(){
-
-				@Override
-				public void onClick(View v) {
-					//FIX BUG with myPosition  instead of final position variable because we get 
-					//the next value on click validation button edm. Use myPosition variable instead of position.
-					
-					//nbVote , auteurVote,auteurEdm, numEdm, keyVote
-					int myPosition = position;
-					int nbLikeEdmToIncrement = Integer.valueOf(getItem(myPosition).getNbLikesEdm());
-					nbLikeEdmToIncrement++;
-					layoutDatas.nbLikeByEdm.setText(String.valueOf(nbLikeEdmToIncrement) + " vote(s)");
-					layoutDatas.nbLikeByEdm.refreshDrawableState();
-				    Toast.makeText(getContext(), "click " + myPosition + " nbLikeEdmToIncrement :  " + nbLikeEdmToIncrement + " heurepost " + getItem(myPosition).getHeurePost().toString() + "  numEdm " + getItem(myPosition).getNumEdm() , Toast.LENGTH_SHORT).show();
-					myPosition = position;
-				}
-				
-			});
+			//Toast.makeText(getContext(), "pseudo : " + PreferenceHelper.getUserInPreferences().getPseudo() + " and auteur : " + layoutDatas.auteur.getText(), Toast.LENGTH_SHORT).show();
 			
+			
+			if(PreferenceHelper.getUserInPreferences() == null){
+				layoutDatas.btValiderEdm.setVisibility(View.GONE);
+				layoutDatas.btValiderEdm.refreshDrawableState();
+			}
+			
+	     else if(PreferenceHelper.getUserInPreferences() !=null){
+			if(PreferenceHelper.getUserInPreferences().getPseudo().equals(entity.getAuteurPost())){
+				layoutDatas.btValiderEdm.setVisibility(View.GONE);
+				layoutDatas.btValiderEdm.refreshDrawableState();
+		     }else{
+		    	 layoutDatas.btValiderEdm.setVisibility(View.VISIBLE);
+					layoutDatas.btValiderEdm.setClickable(true);
+					layoutDatas.btValiderEdm.refreshDrawableState();
+					layoutDatas.btValiderEdm.setOnClickListener(new OnClickListener(){
+
+						@Override
+						public void onClick(View v) {
+							//FIX BUG with myPosition  instead of final position variable because we get 
+							//the next value on click validation button edm. Use myPosition variable instead of position.
+						
+							
+							int myPosition = position;
+						    nbLikeEdmToIncrement = Integer.valueOf(getItem(myPosition).getNbLikesEdm());
+							
+						
+							//nbVote , auteurVote,auteurEdm, numEdm, keyVote
+							restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.NB_VOTE, "1"));
+							restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.AUTEUR_VOTE, PreferenceHelper.getUserInPreferences().getPseudo()));
+							restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.AUTEUR_EDM, getItem(myPosition).getAuteurPost()));
+							restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_EDM, getItem(myPosition).getNumEdm()));
+							restrictionLikerEdm.add(new BasicNameValuePair(ApplicationConstants.KEY_VOTE, PreferenceHelper.getUserInPreferences().getPseudo()+""+getItem(myPosition).getNumEdm()));
+							JsonHelper.TYPE_JSON_RESULT = "object";
+							edmService.likerEdmByContext(getContext(), new JsonHelper("post", ApplicationConstants.URI_WS, ApplicationConstants.LIKER_EDM, restrictionLikerEdm,
+									new JsonListener(){
+
+										@Override
+										public void onSuccess(JSONObject jsonObj) {
+											
+											nbLikeEdmToIncrement++;
+											layoutDatas.nbLikeByEdm.setText(String.valueOf(nbLikeEdmToIncrement) + " vote(s)");
+											layoutDatas.nbLikeByEdm.refreshDrawableState();
+										
+											Toast.makeText(getContext(), "Merci d'avoir voté pour cette EDM", Toast.LENGTH_SHORT).show();
+											Log.d("edm ",
+													"Vote réalisé avec succès");
+									
+			
+										}
+
+										@Override
+										public void onFailed(String msg) {
+											// TODO Auto-generated method stub
+											Log.d("edm ",
+													"Echec du vote : " + msg);
+											Toast.makeText(getContext(), "Le vote a échoué !", Toast.LENGTH_SHORT).show();
+										}
+								
+							}));
+							
+						   // Toast.makeText(getContext(), "click " + myPosition + " nbLikeEdmToIncrement :  " + nbLikeEdmToIncrement + " heurepost " + getItem(myPosition).getHeurePost().toString() + "  numEdm " + getItem(myPosition).getNumEdm() , Toast.LENGTH_SHORT).show();
+							myPosition = position;
+						}
+						
+					});
+		     }
+		 }
 
 		return row;
 	}

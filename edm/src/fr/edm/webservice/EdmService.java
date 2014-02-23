@@ -48,25 +48,31 @@ public class EdmService implements EdmWebServiceInterface {
 	@Override
 	public void getAllEdmS(Activity activity, JsonHelper json) {
 		json.execute(ApplicationConstants.URI_WS);
-		
+
 	}
 
 	@Override
 	public void likerEdm(Activity activity, JsonHelper json) {
 		json.execute(ApplicationConstants.URI_WS);
-		
+
 	}
 
 	@Override
 	public void getNbLikeByNumEdm(Activity activity, JsonHelper json) {
 		json.execute(ApplicationConstants.URI_WS);
-		
+
 	}
 
 	@Override
 	public void getNbLikeByNumEdmByContext(Context context, JsonHelper json) {
 		json.execute(ApplicationConstants.URI_WS);
-		
+
+	}
+
+	@Override
+	public void likerEdmByContext(Context context, JsonHelper json) {
+		json.execute(ApplicationConstants.URI_WS);
+
 	}
 
 }
