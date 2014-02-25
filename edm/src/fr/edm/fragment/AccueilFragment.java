@@ -100,12 +100,14 @@ public class AccueilFragment extends EdmFragment {
 		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
 			.execute(allEdmRequest, allEdmRequest.getCacheKey(), 
 					ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new AccueilRequestListener() );
-			
+				  
 		  
 			    listViewEdm.setScrollContainer(true);
 			    ToolBox.setListViewScrollable(listViewEdm);
 
-			  listViewEdm.refreshDrawableState();
+			      listViewEdm.destroyDrawingCache();
+				  listViewEdm.setVisibility(ListView.INVISIBLE);
+				  listViewEdm.setVisibility(ListView.VISIBLE);
 		   
 	        return v;
 	    }
@@ -127,6 +129,9 @@ public class AccueilFragment extends EdmFragment {
 			adapter.add(postEdm);
 
 			}
+			  listViewEdm.destroyDrawingCache();
+			  listViewEdm.setVisibility(ListView.INVISIBLE);
+			  listViewEdm.setVisibility(ListView.VISIBLE);
 	
 			listViewEdm.setAdapter(adapter);
 
@@ -223,7 +228,10 @@ public class AccueilFragment extends EdmFragment {
 		public void onResume() {
 		    super.onResume();
 
-		    listViewEdm.refreshDrawableState();
+		    listViewEdm.destroyDrawingCache();
+			  listViewEdm.setVisibility(ListView.INVISIBLE);
+			  listViewEdm.setVisibility(ListView.VISIBLE);
+		 
 
 		}
 	

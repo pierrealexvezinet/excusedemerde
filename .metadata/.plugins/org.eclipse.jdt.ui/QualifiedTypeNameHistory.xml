@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="fr.edm.model.ListRoiDesMythos"/>
 <fullyQualifiedTypeName name="fr.edm.request.edm.RoiDesMythosRequest"/>
 <fullyQualifiedTypeName name="fr.edm.fragment.RoiDesMythosFragment.RoiDesMythosRequestListner"/>
-<fullyQualifiedTypeName name="fr.edm.utils.PreferenceHelper"/>
 <fullyQualifiedTypeName name="android.R"/>
 <fullyQualifiedTypeName name="android.R.drawable"/>
 <fullyQualifiedTypeName name="com.itelios.itframework.R"/>
@@ -25,4 +24,7 @@
 <fullyQualifiedTypeName name="fr.edm.model.ListUsers"/>
 <fullyQualifiedTypeName name="fr.edm.activity.parent.EdmFragmentActivity"/>
 <fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
+<fullyQualifiedTypeName name="fr.edm.utils.PreferenceHelper"/>
+<fullyQualifiedTypeName name="fr.edm.model.User"/>
 </qualifiedTypeNameHistroy>

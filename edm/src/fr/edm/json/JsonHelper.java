@@ -96,7 +96,7 @@ public class JsonHelper extends AsyncTask<String, Void, JSONObject> {
 			
 			
 		} catch (JSONException e) {
-			Log.d("dede", "exeption levee in JsonHelper (message) : " + e.getMessage() + " (cause) : " + e.getCause());
+			Log.d("edm", "exeption levee in JsonHelper (message) : " + e.getMessage() + " (cause) : " + e.getCause());
 			return null;
 		}
 
