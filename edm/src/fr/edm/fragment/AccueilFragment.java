@@ -96,10 +96,18 @@ public class AccueilFragment extends EdmFragment {
 		   
 		   /*spice request for all edm in accueil activity*/
 		  allEdmRequest = new AllEdmsRequest(ApplicationConstants.GET_ALL_EDMs);
+		  
+		  if(EdmFragmentActivity.isNetworkAvailable(getApplicationContext())){
+			  ((EdmFragmentActivity) getActivity()).getSpiceManager()
+				.execute(allEdmRequest, allEdmRequest.getCacheKey(), 
+						ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new AccueilRequestListener() );
+		  }else{
+			  ((EdmFragmentActivity) getActivity()).getSpiceManager()
+				.execute(allEdmRequest, allEdmRequest.getCacheKey(), 
+						ApplicationConstants.NEVER_EXPIRE_CACHE_DATA, new AccueilRequestListener() );
+		  }
 	
-		  ((EdmFragmentActivity) getActivity()).getSpiceManager()
-			.execute(allEdmRequest, allEdmRequest.getCacheKey(), 
-					ApplicationConstants.ONE_MINUTE_EXPIRE_CACHE_DATA, new AccueilRequestListener() );
+		  
 				  
 		  
 			    listViewEdm.setScrollContainer(true);
@@ -228,11 +236,21 @@ public class AccueilFragment extends EdmFragment {
 		public void onResume() {
 		    super.onResume();
 
-		    listViewEdm.destroyDrawingCache();
+		      listViewEdm.destroyDrawingCache();
 			  listViewEdm.setVisibility(ListView.INVISIBLE);
 			  listViewEdm.setVisibility(ListView.VISIBLE);
 		 
 
 		}
+
+		public ListView getListViewEdm() {
+			return listViewEdm;
+		}
+
+		public void setListViewEdm(ListView listViewEdm) {
+			this.listViewEdm = listViewEdm;
+		}
+		
+		
 	
 }

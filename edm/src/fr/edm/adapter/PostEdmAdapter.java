@@ -13,6 +13,7 @@ import fr.edm.EdmApplication;
 import fr.edm.activity.MesEdmsActivity;
 import fr.edm.activity.parent.EdmFragmentActivity;
 import fr.edm.fragment.AccueilFragment;
+import fr.edm.fragment.parent.EdmFragment;
 import fr.edm.json.JsonHelper;
 import fr.edm.json.JsonHelper.JsonListener;
 import fr.edm.model.Edm;
@@ -50,6 +51,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 	int nbLikesForCurrentEdm;
 	int nbLikeEdmToIncrement;
 	View row = null;
+	View mv = null;
 	
 	private static ArrayList<NameValuePair> restrictionLikerEdm = new ArrayList<NameValuePair>();
 
@@ -67,7 +69,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 	@Override
 	final public View getView(final int position, View convertView,
 			ViewGroup parent) {
-        
+		
 		
 	    layoutDatas = new StorageEdmRelativeLayoutDatas();
 		 row = convertView;
@@ -94,8 +96,8 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 		
 		    entity = getItem(position);
 			layoutDatas.postEdm.setText(entity.getPost());
-			layoutDatas.datePost.setText("Posté le " + entity.getDatePost());
-			layoutDatas.heurePost.setText(" à " + entity.getHeurePost() + " |");
+			layoutDatas.datePost.setText("Post√© le " + entity.getDatePost());
+			layoutDatas.heurePost.setText(" ÀÜ " + entity.getHeurePost() + " |");
 			layoutDatas.auteur.setText(entity.getAuteurPost() + " | ");
 			
 			layoutDatas.nbLikeByEdm.setText(entity.getNbLikesEdm() + " vote(s)");
@@ -104,18 +106,19 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 			
 			
 			if(PreferenceHelper.getUserInPreferences() == null){
-				layoutDatas.btValiderEdm.setVisibility(View.GONE);
-				layoutDatas.btValiderEdm.refreshDrawableState();
+				layoutDatas.btValiderEdm.setVisibility(View.INVISIBLE);
+				layoutDatas.btValiderEdm.invalidate();
 			}
 			
 	     else if(PreferenceHelper.getUserInPreferences() !=null){
 			if(PreferenceHelper.getUserInPreferences().getPseudo().equals(entity.getAuteurPost())){
-				layoutDatas.btValiderEdm.setVisibility(View.GONE);
-				layoutDatas.btValiderEdm.refreshDrawableState();
+				layoutDatas.btValiderEdm.setText("A vot√©!");
+				layoutDatas.btValiderEdm.setTextColor(Color.RED);
+				layoutDatas.btValiderEdm.invalidate();
 		     }else{
 		    	 layoutDatas.btValiderEdm.setVisibility(View.VISIBLE);
 					layoutDatas.btValiderEdm.setClickable(true);
-					layoutDatas.btValiderEdm.refreshDrawableState();
+					layoutDatas.btValiderEdm.invalidate();
 					
 					layoutDatas.btValiderEdm.setTag(1);
 					layoutDatas.btValiderEdm.setOnClickListener(new OnClickListener(){
@@ -125,7 +128,9 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 							final int status =(Integer) v.getTag();
 							//FIX BUG with myPosition  instead of final position variable because we get 
 							//the next value on click validation button edm. Use myPosition variable instead of position.
-						
+							layoutDatas.btValiderEdm = (Button) v.findViewById(R.id.bt_valider_edm);
+							//layoutDatas.nbLikeByEdm = (TextView) v.findViewById(R.id.tv_edm_nb_like);
+							
 							
 							int myPosition = position;
 						    nbLikeEdmToIncrement = Integer.valueOf(getItem(myPosition).getNbLikesEdm());
@@ -151,21 +156,17 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 											
 											nbLikeEdmToIncrement++;
 											
-											layoutDatas.nbLikeByEdm = (TextView) row.findViewById(R.id.tv_edm_nb_like);
-											layoutDatas.nbLikeByEdm.setText(String.valueOf(nbLikeEdmToIncrement) + " vote(s)");
-											layoutDatas.nbLikeByEdm.refreshDrawableState();
+											//layoutDatas.nbLikeByEdm.setText(String.valueOf(nbLikeEdmToIncrement) + " vote(s)");
+										
+											layoutDatas.btValiderEdm.setText("A vot√©!");
+											layoutDatas.btValiderEdm.setTextColor(Color.RED);
+										
 											
-											layoutDatas.btValiderEdm = (Button) row.findViewById(R.id.bt_valider_edm);
-											
-											layoutDatas.btValiderEdm.setText("A voté !");
-											layoutDatas.btValiderEdm.destroyDrawingCache();
-											layoutDatas.btValiderEdm.setVisibility(ListView.INVISIBLE);
-											layoutDatas.btValiderEdm.setVisibility(ListView.VISIBLE);
-											layoutDatas.btValiderEdm.refreshDrawableState();
+											layoutDatas.btValiderEdm.invalidate();
 										   
-											Toast.makeText(getContext(), "Merci d'avoir voté pour cette EDM", Toast.LENGTH_SHORT).show();
+											Toast.makeText(getContext(), "Merci d'avoir vot√© pour cette EDM", Toast.LENGTH_SHORT).show();
 											Log.d("edm ",
-													"Vote réalisé avec succès");
+													"Vote r√©alis√© avec succ√®s");
 											}
 			
 										}
@@ -175,7 +176,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 											// TODO Auto-generated method stub
 											Log.d("edm ",
 													"Echec du vote : " + msg);
-											Toast.makeText(getContext(), "Le vote a échoué !", Toast.LENGTH_SHORT).show();
+											Toast.makeText(getContext(), "Le vote a √©chou√© !", Toast.LENGTH_SHORT).show();
 										}
 								
 							}));

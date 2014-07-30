@@ -23,44 +23,54 @@
         android:theme="@style/Theme.AppCompat.Light" >
         <activity
             android:name="fr.edm.activity.parent.EdmFragmentActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="fr.edm.activity.AccueilActivity"
             android:label="@string/app_name_accueil"
-            android:launchMode="singleTop" >
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="fr.edm.activity.AccountActivity"
-            android:label="@string/app_name_account" >
+            android:label="@string/app_name_account"
+            android:screenOrientation="portrait"  >
         </activity>
         <activity
             android:name="fr.edm.activity.LoginActivity"
-            android:label="@string/app_name_authentication" >
+            android:label="@string/app_name_authentication"
+            android:screenOrientation="portrait"  >
         </activity>
         <activity
             android:name="fr.edm.activity.PlusActivity"
-            android:label="@string/app_name_parameters" >
+            android:label="@string/app_name_parameters"
+            android:screenOrientation="portrait"  >
         </activity>
         <activity
             android:name="fr.edm.activity.EditionProfilActivity"
-            android:label="@string/app_name_edition_profil" >
+            android:label="@string/app_name_edition_profil" 
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="fr.edm.activity.MesEdmsActivity"
-            android:label="@string/app_name_mes_edms" >
+            android:label="@string/app_name_mes_edms" 
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="fr.edm.activity.ClassementTopTenDesMythosActivity"
-            android:label="@string/app_name_top_ten_des_mythos" >
+            android:label="@string/app_name_top_ten_des_mythos"
+            android:screenOrientation="portrait"  >
         </activity>
         <activity
             android:name="fr.edm.activity.RoiDesMythosActivity"
-            android:label="@string/app_name_roi_des_mythos" >
+            android:label="@string/app_name_roi_des_mythos"
+            android:screenOrientation="portrait"  >
         </activity>
         <activity
             android:name="fr.edm.activity.SplashActivity"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@android:style/Theme.NoTitleBar"
+            android:screenOrientation="portrait"  >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -69,7 +79,8 @@
         </activity>
         <activity
             android:name="fr.edm.activity.PosterEdmActivity"
-            android:label="@string/app_name_poster_edm" >
+            android:label="@string/app_name_poster_edm"
+            android:screenOrientation="portrait"  >
         </activity>
 
         <service
