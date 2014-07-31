@@ -83,7 +83,7 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
 		etPassword = (EditText) v.findViewById(R.id.et_user_mdp);
 		cbRemindMe = (CheckBox) v.findViewById(R.id.cb_remind_me);
 		btnConnexion = (Button) v.findViewById(R.id.bt_user_connexion);
-
+		
 		btnConnexion.setOnClickListener(this);
 		btnConnexion.setOnClickListener(this);
 		
@@ -95,6 +95,8 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
 			cbRemindMe.setChecked(false);
 			etLogin.setText("");
 			etPassword.setText("");
+			etLogin.setText("bebe");
+			etPassword.setText("bebe");
 		}
 
 		return v;
@@ -224,7 +226,7 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
 					 if(result.getListEdmsUser() != null){
 				    Toast.makeText(getActivity(), "Chargement de vos " + nbEdmUser + " EDMs ", Toast.LENGTH_LONG).show();
 					 }else{
-						 Toast.makeText(getActivity(), "Vous n'avez pas encore postŽ d'EDM ", Toast.LENGTH_LONG).show(); 
+						 Toast.makeText(getActivity(), "Vous n'avez pas encore posté d'EDM ", Toast.LENGTH_LONG).show(); 
 					 }
 
 				

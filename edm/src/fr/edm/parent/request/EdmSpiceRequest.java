@@ -32,6 +32,7 @@ public class EdmSpiceRequest<RESULT> extends SpringAndroidSpiceRequest<RESULT> {
 		// TODO Auto-generated method stub
 		ResponseEntity<RESULT> responseEntity = null;
 		responseEntity = getRestTemplate().getForEntity(mURL, getResultType());
+	
 		Log.d("ccc", "response : " + responseEntity.getBody().toString());
 
 		if (responseEntity != null){

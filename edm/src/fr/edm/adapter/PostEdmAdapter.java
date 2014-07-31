@@ -1,43 +1,28 @@
 package fr.edm.adapter;
 
 import java.util.ArrayList;
-
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
 import fr.activity.edm.R;
-import fr.edm.EdmApplication;
-import fr.edm.activity.MesEdmsActivity;
-import fr.edm.activity.parent.EdmFragmentActivity;
-import fr.edm.fragment.AccueilFragment;
-import fr.edm.fragment.parent.EdmFragment;
 import fr.edm.json.JsonHelper;
 import fr.edm.json.JsonHelper.JsonListener;
-import fr.edm.model.Edm;
-import fr.edm.model.EdmUser;
 import fr.edm.model.PostEdm;
-import fr.edm.model.User;
 import fr.edm.utils.ApplicationConstants;
 import fr.edm.utils.PreferenceHelper;
 import fr.edm.webservice.EdmService;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
+
 
 public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 
@@ -52,6 +37,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 	int nbLikeEdmToIncrement;
 	View row = null;
 	View mv = null;
+	int status = 0;
 	
 	private static ArrayList<NameValuePair> restrictionLikerEdm = new ArrayList<NameValuePair>();
 
@@ -76,8 +62,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 	
 
 		if (row == null) {
-			row = mInflater
-					.inflate(this.resourceTV, parent, false);
+			row = mInflater.inflate(this.resourceTV, parent, false);
 			layoutDatas.postEdm = (TextView) row.findViewById(R.id.tv_edm_post);
 			layoutDatas.datePost = (TextView) row.findViewById(R.id.tv_edm_post_date);
 			layoutDatas.heurePost = (TextView) row.findViewById(R.id.tv_edm_post_hour);
@@ -85,7 +70,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 			layoutDatas.btValiderEdm = (Button) row.findViewById(R.id.bt_valider_edm);
 			layoutDatas.nbLikeByEdm = (TextView) row.findViewById(R.id.tv_edm_nb_like);
 			
-			
+			//row.invalidate();
 			row.setTag(layoutDatas);
 	
 		} else {
@@ -96,8 +81,8 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 		
 		    entity = getItem(position);
 			layoutDatas.postEdm.setText(entity.getPost());
-			layoutDatas.datePost.setText("PostÃ© le " + entity.getDatePost());
-			layoutDatas.heurePost.setText(" Ë† " + entity.getHeurePost() + " |");
+			layoutDatas.datePost.setText("Posté le " + entity.getDatePost());
+			layoutDatas.heurePost.setText(" à " + entity.getHeurePost() + " |");
 			layoutDatas.auteur.setText(entity.getAuteurPost() + " | ");
 			
 			layoutDatas.nbLikeByEdm.setText(entity.getNbLikesEdm() + " vote(s)");
@@ -106,32 +91,26 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 			
 			
 			if(PreferenceHelper.getUserInPreferences() == null){
-				layoutDatas.btValiderEdm.setVisibility(View.INVISIBLE);
-				layoutDatas.btValiderEdm.invalidate();
+				layoutDatas.btValiderEdm.setVisibility(View.GONE);
+				//layoutDatas.btValiderEdm.invalidate();
 			}
 			
 	     else if(PreferenceHelper.getUserInPreferences() !=null){
 			if(PreferenceHelper.getUserInPreferences().getPseudo().equals(entity.getAuteurPost())){
-				layoutDatas.btValiderEdm.setText("A votÃ©!");
-				layoutDatas.btValiderEdm.setTextColor(Color.RED);
-				layoutDatas.btValiderEdm.invalidate();
+				layoutDatas.btValiderEdm.setVisibility(View.GONE);
 		     }else{
+		    	 
 		    	 layoutDatas.btValiderEdm.setVisibility(View.VISIBLE);
-					layoutDatas.btValiderEdm.setClickable(true);
-					layoutDatas.btValiderEdm.invalidate();
-					
+					layoutDatas.btValiderEdm.setClickable(true);	
 					layoutDatas.btValiderEdm.setTag(1);
 					layoutDatas.btValiderEdm.setOnClickListener(new OnClickListener(){
-
+						
 						@Override
-						public void onClick(View v) {
-							final int status =(Integer) v.getTag();
+						public void onClick(final View v) {
+						status =(Integer) v.getTag();
 							//FIX BUG with myPosition  instead of final position variable because we get 
 							//the next value on click validation button edm. Use myPosition variable instead of position.
-							layoutDatas.btValiderEdm = (Button) v.findViewById(R.id.bt_valider_edm);
-							//layoutDatas.nbLikeByEdm = (TextView) v.findViewById(R.id.tv_edm_nb_like);
-							
-							
+						
 							int myPosition = position;
 						    nbLikeEdmToIncrement = Integer.valueOf(getItem(myPosition).getNbLikesEdm());
 							
@@ -152,22 +131,22 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 										@Override
 										public void onSuccess(JSONObject jsonObj) {
 											
-											if(status == 1) {
+											
 											
 											nbLikeEdmToIncrement++;
 											
 											//layoutDatas.nbLikeByEdm.setText(String.valueOf(nbLikeEdmToIncrement) + " vote(s)");
-										
-											layoutDatas.btValiderEdm.setText("A votÃ©!");
+											layoutDatas.btValiderEdm = (Button) v.findViewById(R.id.bt_valider_edm);
+											layoutDatas.btValiderEdm.setText("A voté!");
 											layoutDatas.btValiderEdm.setTextColor(Color.RED);
 										
 											
-											layoutDatas.btValiderEdm.invalidate();
+											//layoutDatas.btValiderEdm.invalidate();
 										   
-											Toast.makeText(getContext(), "Merci d'avoir votÃ© pour cette EDM", Toast.LENGTH_SHORT).show();
+											Toast.makeText(getContext(), "Merci d'avoir voté pour cette EDM", Toast.LENGTH_SHORT).show();
 											Log.d("edm ",
-													"Vote rÃ©alisÃ© avec succÃ¨s");
-											}
+													"Vote réalisé avec succès !");
+											
 			
 										}
 
@@ -176,16 +155,23 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 											// TODO Auto-generated method stub
 											Log.d("edm ",
 													"Echec du vote : " + msg);
-											Toast.makeText(getContext(), "Le vote a Ã©chouÃ© !", Toast.LENGTH_SHORT).show();
+											Toast.makeText(getContext(), "Le vote a échoué !", Toast.LENGTH_SHORT).show();
 										}
 								
 							}));
 							
 						   // Toast.makeText(getContext(), "click " + myPosition + " nbLikeEdmToIncrement :  " + nbLikeEdmToIncrement + " heurepost " + getItem(myPosition).getHeurePost().toString() + "  numEdm " + getItem(myPosition).getNumEdm() , Toast.LENGTH_SHORT).show();
 							myPosition = position;
+							
+			
 						}
 						
+						
+						
 					});
+					
+					
+					
 		     }
 		 }
 		
