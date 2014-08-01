@@ -40,6 +40,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 	int status = 0;
 	
 	private static ArrayList<NameValuePair> restrictionLikerEdm = new ArrayList<NameValuePair>();
+	private static ArrayList<NameValuePair> restrictionHasUserVotedForEdm = new ArrayList<NameValuePair>();
 
 
 
@@ -49,6 +50,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 		mInflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		this.resourceTV = resourceTV;
+		
 		
 	}
 
@@ -82,25 +84,56 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 		    entity = getItem(position);
 			layoutDatas.postEdm.setText(entity.getPost());
 			layoutDatas.datePost.setText("Posté le " + entity.getDatePost());
-			layoutDatas.heurePost.setText(" à " + entity.getHeurePost() + " |");
+			layoutDatas.heurePost.setText(" à  " + entity.getHeurePost() + " |");
 			layoutDatas.auteur.setText(entity.getAuteurPost() + " | ");
 			
 			layoutDatas.nbLikeByEdm.setText(entity.getNbLikesEdm() + " vote(s)");
 			
-			//Toast.makeText(getContext(), "pseudo : " + PreferenceHelper.getUserInPreferences().getPseudo() + " and auteur : " + layoutDatas.auteur.getText(), Toast.LENGTH_SHORT).show();
+		
 			
 			
 			if(PreferenceHelper.getUserInPreferences() == null){
 				layoutDatas.btValiderEdm.setVisibility(View.GONE);
-				//layoutDatas.btValiderEdm.invalidate();
+				layoutDatas.btValiderEdm.invalidate();
 			}
 			
 	     else if(PreferenceHelper.getUserInPreferences() !=null){
 			if(PreferenceHelper.getUserInPreferences().getPseudo().equals(entity.getAuteurPost())){
 				layoutDatas.btValiderEdm.setVisibility(View.GONE);
+				layoutDatas.btValiderEdm.invalidate();
 		     }else{
 		    	 
-		    	 layoutDatas.btValiderEdm.setVisibility(View.VISIBLE);
+		    	   restrictionHasUserVotedForEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_REQUEST, ApplicationConstants.HAS_USER_VOTED_FOR_EDM));
+		    	   restrictionHasUserVotedForEdm.add(new BasicNameValuePair(ApplicationConstants.AUTEUR_VOTE, PreferenceHelper.getUserInPreferences().getPseudo().toString()));
+		    	   restrictionHasUserVotedForEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_EDM, entity.getNumEdm()));
+		    	 
+		    	 //HAS_USER_VOTED_FOR_EDM ?
+//		    	 edmService.hasUserVotedForEdm(getContext(), new JsonHelper("post", ApplicationConstants.URI_WS, ApplicationConstants.HAS_USER_VOTED_FOR_EDM, restrictionHasUserVotedForEdm,
+//							new JsonListener(){
+//
+//								@Override
+//								public void onSuccess(JSONObject jsonObj) {
+//								
+//							
+//									layoutDatas.btValiderEdm.setText("A voté!");
+//									layoutDatas.btValiderEdm.setTextColor(Color.RED);
+//									layoutDatas.btValiderEdm.invalidate();
+//								}
+//
+//								@Override
+//								public void onFailed(String msg) {
+//									// TODO Auto-generated method stub
+//									Log.d("edm ",
+//											"Echec récupération nombre vote du vote : " + msg);
+//									Toast.makeText(getContext(), "Le vote a échoué !", Toast.LENGTH_SHORT).show();
+//								}
+//						
+//					}));
+		    	 
+		    	 //fin HAS_USER_VOTED_FOR_EDM
+		    	 
+		    	 
+		    	 	layoutDatas.btValiderEdm.setVisibility(View.VISIBLE);
 					layoutDatas.btValiderEdm.setClickable(true);	
 					layoutDatas.btValiderEdm.setTag(1);
 					layoutDatas.btValiderEdm.setOnClickListener(new OnClickListener(){

@@ -3,6 +3,8 @@
     
     <color name="edm_blue_background" >#AAD2E9</color>
     <color name="edm_blue_dark_background">#368ABA</color>
+    <color name="edm_orange_dark_background">#F09F38</color>
+    
     <color name="btn_accueil_color">#D98E20</color>
     <color name="btn_forum_color">#97AC72</color>
     <color name="btn_shopping_color">#EA877B</color>

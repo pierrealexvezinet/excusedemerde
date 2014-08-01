@@ -95,8 +95,8 @@ public class LoginFragment extends EdmFragment implements OnClickListener {
 			cbRemindMe.setChecked(false);
 			etLogin.setText("");
 			etPassword.setText("");
-			etLogin.setText("bebe");
-			etPassword.setText("bebe");
+			etLogin.setText("gege");
+			etPassword.setText("gege");
 		}
 
 		return v;

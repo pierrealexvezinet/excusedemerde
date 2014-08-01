@@ -75,4 +75,10 @@ public class EdmService implements EdmWebServiceInterface {
 
 	}
 
+	@Override
+	public void hasUserVotedForEdm(Context context, JsonHelper json) {
+		json.execute(ApplicationConstants.URI_WS);
+		
+	}
+
 }

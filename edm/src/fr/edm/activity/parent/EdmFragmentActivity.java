@@ -2,29 +2,11 @@ package fr.edm.activity.parent;
 
 import fr.activity.edm.R;
 import java.util.ArrayList;
-import java.util.concurrent.ExecutionException;
-
-import org.apache.commons.lang3.time.DurationFormatUtils;
-import org.springframework.http.converter.HttpMessageNotReadableException;
-
 import com.octo.android.robospice.SpiceManager;
-import com.octo.android.robospice.exception.NoNetworkException;
-import com.octo.android.robospice.persistence.DurationInMillis;
-import com.octo.android.robospice.persistence.exception.CacheLoadingException;
-import com.octo.android.robospice.persistence.exception.SpiceException;
-import com.octo.android.robospice.request.listener.RequestListener;
-
 import fr.edm.EdmApplication;
 import fr.edm.activity.*;
 import fr.edm.adapter.EdmDrawerAdapter;
 import fr.edm.fragment.AccueilFragment;
-import fr.edm.fragment.LoginFragment.LoginRequestListener;
-import fr.edm.fragment.LoginFragment.UserEdmsRequestListener;
-import fr.edm.model.ListUsers;
-import fr.edm.model.User;
-import fr.edm.request.edm.LoginUserRequest;
-import fr.edm.request.edm.UserEdmsRequest;
-import fr.edm.utils.ApplicationConstants;
 import fr.edm.utils.PreferenceHelper;
 import fr.edm.webservice.EdmService;
 import fr.edm.webservice.EdmSpiceService;
@@ -55,7 +37,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.content.DialogInterface.*;
 import android.widget.AdapterView.OnItemClickListener;
 

@@ -49,6 +49,7 @@ public class ApplicationConstants {
 	public final static String DELETE_USER = "DELETE_USER";
 	public final static String GET_CLASSEMENT_TOP_TEN = "GET_CLASSEMENT_TOP_TEN";
 	public final static String GET_ROI_DES_MYTHOS_USER = "GET_ROI_DES_MYTHOS_USER";
+	public final static String HAS_USER_VOTED_FOR_EDM = "HAS_USER_VOTED_FOR_EDM";
 
 	// RESTRICTIONS ON EDM REQUEST
 	public final static String GET_USER_EDMs = "GET_USER_EDMs";

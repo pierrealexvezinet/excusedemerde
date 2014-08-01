@@ -2,17 +2,9 @@ package fr.edm.fragment;
 
 
 import java.util.ArrayList;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 
-import com.octo.android.robospice.SpiceManager;
 import com.octo.android.robospice.exception.NoNetworkException;
-import com.octo.android.robospice.persistence.DurationInMillis;
 import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
@@ -22,8 +14,6 @@ import fr.edm.EdmApplication;
 import fr.edm.activity.parent.EdmFragmentActivity;
 import fr.edm.adapter.PostEdmAdapter;
 import fr.edm.fragment.parent.EdmFragment;
-import fr.edm.json.JsonHelper;
-import fr.edm.json.JsonHelper.JsonListener;
 import fr.edm.model.Edm;
 import fr.edm.model.EdmUser;
 import fr.edm.model.ListEdms;
@@ -35,21 +25,14 @@ import fr.edm.utils.PreferenceHelper;
 import fr.edm.utils.ToolBox;
 import fr.edm.webservice.EdmService;
 import fr.edm.webservice.UserService;
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
-
 
 
 public class AccueilFragment extends EdmFragment {
@@ -77,13 +60,9 @@ public class AccueilFragment extends EdmFragment {
 	ListView listViewEdm;
 	public static PostEdmAdapter adapter = null;
 	int cpt = 0;
-	private static ArrayList<NameValuePair> restrictionLikerEdm = new ArrayList<NameValuePair>();
-	private static ArrayList<NameValuePair> restrictionNbLikeByNumEdm = new ArrayList<NameValuePair>();
-	private static ArrayList<NameValuePair> restrictionGetNbLikeEdmByNumEdm = new ArrayList<NameValuePair>();
 	PostEdm postEdm;
 	int nbLikesForCurrentEdm;
 
-	@SuppressWarnings("deprecation")
 	@Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) {
@@ -116,6 +95,7 @@ public class AccueilFragment extends EdmFragment {
 			      listViewEdm.destroyDrawingCache();
 				  listViewEdm.setVisibility(ListView.INVISIBLE);
 				  listViewEdm.setVisibility(ListView.VISIBLE);
+				  listViewEdm.invalidate();
 		   
 	        return v;
 	    }
