@@ -28,7 +28,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 
 	private LayoutInflater mInflater = null;
 	public PostEdm storage = new PostEdm();
-	static StorageEdmRelativeLayoutDatas layoutDatas;
+    StorageEdmRelativeLayoutDatas layoutDatas;
 	ArrayList<PostEdm> currentListPost = new ArrayList<PostEdm>();
 	int resourceTV =0;
 	PostEdm entity;
@@ -103,35 +103,7 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 				layoutDatas.btValiderEdm.invalidate();
 		     }else{
 		    	 
-		    	   restrictionHasUserVotedForEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_REQUEST, ApplicationConstants.HAS_USER_VOTED_FOR_EDM));
-		    	   restrictionHasUserVotedForEdm.add(new BasicNameValuePair(ApplicationConstants.AUTEUR_VOTE, PreferenceHelper.getUserInPreferences().getPseudo().toString()));
-		    	   restrictionHasUserVotedForEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_EDM, entity.getNumEdm()));
-		    	 
-		    	 //HAS_USER_VOTED_FOR_EDM ?
-//		    	 edmService.hasUserVotedForEdm(getContext(), new JsonHelper("post", ApplicationConstants.URI_WS, ApplicationConstants.HAS_USER_VOTED_FOR_EDM, restrictionHasUserVotedForEdm,
-//							new JsonListener(){
-//
-//								@Override
-//								public void onSuccess(JSONObject jsonObj) {
-//								
-//							
-//									layoutDatas.btValiderEdm.setText("A voté!");
-//									layoutDatas.btValiderEdm.setTextColor(Color.RED);
-//									layoutDatas.btValiderEdm.invalidate();
-//								}
-//
-//								@Override
-//								public void onFailed(String msg) {
-//									// TODO Auto-generated method stub
-//									Log.d("edm ",
-//											"Echec récupération nombre vote du vote : " + msg);
-//									Toast.makeText(getContext(), "Le vote a échoué !", Toast.LENGTH_SHORT).show();
-//								}
-//						
-//					}));
-		    	 
-		    	 //fin HAS_USER_VOTED_FOR_EDM
-		    	 
+		    	 //has user voted
 		    	 
 		    	 	layoutDatas.btValiderEdm.setVisibility(View.VISIBLE);
 					layoutDatas.btValiderEdm.setClickable(true);	
@@ -167,12 +139,14 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 											
 											
 											nbLikeEdmToIncrement++;
-											
-											//layoutDatas.nbLikeByEdm.setText(String.valueOf(nbLikeEdmToIncrement) + " vote(s)");
+											layoutDatas.nbLikeByEdm = (TextView) v.findViewById(R.id.tv_edm_nb_like);
+										
+											layoutDatas.nbLikeByEdm.setText(String.valueOf(nbLikeEdmToIncrement) + " vote(s)");
+											layoutDatas.nbLikeByEdm.invalidate();
 											layoutDatas.btValiderEdm = (Button) v.findViewById(R.id.bt_valider_edm);
 											layoutDatas.btValiderEdm.setText("A voté!");
 											layoutDatas.btValiderEdm.setTextColor(Color.RED);
-										
+											layoutDatas.btValiderEdm.setClickable(false);
 											
 											//layoutDatas.btValiderEdm.invalidate();
 										   
@@ -211,14 +185,6 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 		return row;
 	}
 	
-	
-	
 
-	class StorageEdmRelativeLayoutDatas {
-
-		TextView postEdm, datePost, heurePost, auteur, nbLikeByEdm;
-		Button btValiderEdm;
-
-	}
 
 }

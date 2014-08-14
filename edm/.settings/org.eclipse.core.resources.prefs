@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//src/fr/edm/activity/parent/EdmFragmentActivity.java=UTF-8
 encoding//src/fr/edm/db/EdmSQLHelper.java=UTF-8
 encoding//src/fr/edm/db/SQLQueries.java=UTF-8
+encoding//src/fr/edm/fragment/PosterEdmFragment.java=UTF-8
 encoding//src/fr/edm/webservice/UserService.java=UTF-8
