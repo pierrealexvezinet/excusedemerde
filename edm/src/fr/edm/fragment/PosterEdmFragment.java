@@ -106,7 +106,7 @@ public class PosterEdmFragment extends EdmFragment implements OnClickListener{
 	public void onClick(View v) {
 	
 		if(v == btPosterEdm){
-			//19-06-2013 ‡ 21:21
+			//19-06-2013 √† 21:21
 			EdmApplication.showWaitingDialog(getActivity());
 			
 			Date currentDate = new Date();	
@@ -157,9 +157,9 @@ public class PosterEdmFragment extends EdmFragment implements OnClickListener{
 						   //PreferenceHelper.getListUserEdm().add(0, edmUserPosted);
 						   
 						   PreferenceHelper.setCountEdmsUser(1);
-							Toast.makeText(getActivity(), "Edm postée avec succès ! ", Toast.LENGTH_LONG).show();
+							Toast.makeText(getActivity(), "Edm pos√©e avec succ√®s ! ", Toast.LENGTH_LONG).show();
 							Log.d("tete ",
-									"Edm postée avec succès");
+									"Edm post≈Ωe avec succ√®s");
 							
 						
 							

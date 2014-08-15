@@ -2,6 +2,10 @@ package fr.edm.fragment;
 
 
 import java.util.ArrayList;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONObject;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 
 import com.octo.android.robospice.exception.NoNetworkException;
@@ -9,11 +13,13 @@ import com.octo.android.robospice.persistence.exception.SpiceException;
 import com.octo.android.robospice.request.listener.RequestListener;
 
 import fr.activity.edm.R;
-
 import fr.edm.EdmApplication;
 import fr.edm.activity.parent.EdmFragmentActivity;
 import fr.edm.adapter.PostEdmAdapter;
+import fr.edm.adapter.StorageEdmRelativeLayoutDatas;
 import fr.edm.fragment.parent.EdmFragment;
+import fr.edm.json.JsonHelper;
+import fr.edm.json.JsonHelper.JsonListener;
 import fr.edm.model.Edm;
 import fr.edm.model.EdmUser;
 import fr.edm.model.ListEdms;
@@ -25,6 +31,7 @@ import fr.edm.utils.PreferenceHelper;
 import fr.edm.utils.ToolBox;
 import fr.edm.webservice.EdmService;
 import fr.edm.webservice.UserService;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -62,6 +69,7 @@ public class AccueilFragment extends EdmFragment {
 	int cpt = 0;
 	PostEdm postEdm;
 	int nbLikesForCurrentEdm;
+	public static ArrayList<NameValuePair> restrictionHasUserVotedForEdm = new ArrayList<NameValuePair>();
 
 	@Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -112,7 +120,35 @@ public class AccueilFragment extends EdmFragment {
 			postEdm.setAuteurPost(edm.getPseudo());
 		    postEdm.setNbLikesEdm(edm.getNbLikeForEdm());
 		   
-		    
+		    if(PreferenceHelper.getUserInPreferences() != null){
+	    		
+	    		restrictionHasUserVotedForEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_REQUEST, ApplicationConstants.HAS_USER_VOTED_FOR_EDM));
+	  	    	restrictionHasUserVotedForEdm.add(new BasicNameValuePair(ApplicationConstants.AUTEUR_VOTE, PreferenceHelper.getUserInPreferences().getPseudo().toString()));
+	  	    	restrictionHasUserVotedForEdm.add(new BasicNameValuePair(ApplicationConstants.NUM_EDM, edm.getNumEdm()));
+	  	    	final StorageEdmRelativeLayoutDatas storageEdmRelativeLayoutDatas = new StorageEdmRelativeLayoutDatas();
+	    	
+	    	 edmService.hasUserVotedForEdm(getApplicationContext(), new JsonHelper("post", ApplicationConstants.URI_WS, ApplicationConstants.HAS_USER_VOTED_FOR_EDM, restrictionHasUserVotedForEdm,
+						new JsonListener(){
+
+							@Override
+							public void onSuccess(JSONObject jsonObj) {
+							
+								storageEdmRelativeLayoutDatas.getBtValiderEdm().setText("A voté!");
+								storageEdmRelativeLayoutDatas.getBtValiderEdm().setTextColor(Color.RED);
+								storageEdmRelativeLayoutDatas.getBtValiderEdm().invalidate();
+							}
+
+							@Override
+							public void onFailed(String msg) {
+								// TODO Auto-generated method stub
+								Log.d("edm ",
+										"Echec récupération nombre vote du vote : " + msg);
+								//Toast.makeText(getContext(), "Le vote a échoué !", Toast.LENGTH_SHORT).show();
+							
+							}
+					
+				}));
+	    	}
 		    
 			adapter.add(postEdm);
 

@@ -85,12 +85,12 @@
             <TextView
                 android:id="@+id/tv_edm_nb_like"
                 android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/bt_valider_edm"
                 android:background="@color/edm_blue_dark_background"
                 android:gravity="center"
                 android:paddingLeft="6dip"
-                android:text="5 votes"
+                android:text="0 votes"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
         </RelativeLayout>
