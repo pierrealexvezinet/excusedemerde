@@ -5,8 +5,8 @@ import android.widget.TextView;
 
 public class StorageEdmRelativeLayoutDatas {
 
-	public  TextView postEdm, datePost, heurePost, auteur, nbLikeByEdm;
-	public  Button btValiderEdm;
+	public  TextView postEdm, datePost, heurePost, auteur, nbLikeByEdms;
+	public  Button btValiderEdm, nbLikeByEdm;
 	public TextView getPostEdm() {
 		return postEdm;
 	}
@@ -31,10 +31,10 @@ public class StorageEdmRelativeLayoutDatas {
 	public void setAuteur(TextView auteur) {
 		this.auteur = auteur;
 	}
-	public TextView getNbLikeByEdm() {
+	public Button getNbLikeByEdm() {
 		return nbLikeByEdm;
 	}
-	public void setNbLikeByEdm(TextView nbLikeByEdm) {
+	public void setNbLikeByEdm(Button nbLikeByEdm) {
 		this.nbLikeByEdm = nbLikeByEdm;
 	}
 	public Button getBtValiderEdm() {

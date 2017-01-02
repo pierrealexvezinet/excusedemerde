@@ -70,7 +70,8 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 			layoutDatas.heurePost = (TextView) row.findViewById(R.id.tv_edm_post_hour);
 			layoutDatas.auteur = (TextView) row.findViewById(R.id.tv_edm_post_auteur);
 			layoutDatas.btValiderEdm = (Button) row.findViewById(R.id.bt_valider_edm);
-			layoutDatas.nbLikeByEdm = (TextView) row.findViewById(R.id.tv_edm_nb_like);
+			//layoutDatas.nbLikeByEdm = (TextView) row.findViewById(R.id.tv_edm_nb_like);
+			layoutDatas.nbLikeByEdm = (Button) row.findViewById(R.id.bt_edm_nb_like);
 			
 			//row.invalidate();
 			row.setTag(layoutDatas);
@@ -139,12 +140,13 @@ public class PostEdmAdapter extends ArrayAdapter<PostEdm> {
 											
 											
 											nbLikeEdmToIncrement++;
-											layoutDatas.nbLikeByEdm = (TextView) v.findViewById(R.id.tv_edm_nb_like);
-										
+											//layoutDatas.nbLikeByEdm = (TextView) v.findViewById(R.id.tv_edm_nb_like);
+											layoutDatas.nbLikeByEdm = (Button) v.findViewById(R.id.bt_edm_nb_like);
+											
 											layoutDatas.nbLikeByEdm.setText(String.valueOf(nbLikeEdmToIncrement) + " vote(s)");
 											layoutDatas.nbLikeByEdm.invalidate();
 											layoutDatas.btValiderEdm = (Button) v.findViewById(R.id.bt_valider_edm);
-											layoutDatas.btValiderEdm.setText("A voté!");
+											layoutDatas.btValiderEdm.setText("A votŽ!");
 											layoutDatas.btValiderEdm.setTextColor(Color.RED);
 											layoutDatas.btValiderEdm.setClickable(false);
 											
